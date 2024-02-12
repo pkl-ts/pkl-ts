@@ -1,0 +1,17 @@
+{
+  "name": "pkl-ts",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "keywords": [],
+  "author": "Seyyed Morteza Moosavi",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^9"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "pre-commit": "pnpm -r run pre-commit"
+  }
+}
