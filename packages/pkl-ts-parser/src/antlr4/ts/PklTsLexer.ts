@@ -192,7 +192,7 @@ export class PklTsLexer extends antlr.Lexer {
 
 
     interpolationScopes: Array<StringInterpolationScope> = [];
-    interpolationScope: StringInterpolationScope = StringInterpolationScope::new();
+    interpolationScope: StringInterpolationScope = new StringInterpolationScope();
 
     pushInterpolationScope(): void {
      this.interpolationScope = new StringInterpolationScope();
@@ -218,22 +218,24 @@ export class PklTsLexer extends antlr.Lexer {
     isPounds(): boolean {
      switch (this.interpolationScope.poundLength) {
        case 0: return true;
-       case 1: return this.inputStream.LA(1) === '#';
+       case 1: return String.fromCharCode(this._input.LA(1)) === '#';
        default:
          let poundLength = this.interpolationScope.poundLength;
          for (let i = 1; i <= poundLength; i++) {
-           if (this.inputStream.LA(i) !== '#') return false;
+           if (String.fromCharCode(this._input.LA(i)) !== '#') return false;
          }
          return true;
      }
     }
 
     isQuote(): boolean {
-     return this.inputStream.LA(1) === '"';
+     return String.fromCharCode(this._input.LA(1)) === '"';
     }
 
     endsWithPounds(text: string): boolean {
-     assert(text.length >= 2);
+     if(text.length >= 2) {
+      throw new Error("Pounds should not be used in single or double quotes");
+     };
 
      switch (this.interpolationScope.poundLength) {
        case 0: return true;
@@ -258,8 +260,16 @@ export class PklTsLexer extends antlr.Lexer {
     }
 
     isNewlineOrEof(): boolean {
-     let input = this.inputStream.LA(1);
-     return input === '\n' || input === '\r' || input === Token.EOF;
+     let input = String.fromCharCode(this.inputStream.LA(1));
+     return input === '\n' || input === '\r' || this._input.LA(1) === Token.EOF;
+    }
+
+    isUnicodeIdentifierStart(char: string): boolean {
+      return /\p{ID_Start}/u.test(char);
+    }
+
+    isUnicodeIdentifierPart(char: string): boolean {
+      return /\p{ID_Continue}/u.test(char);
     }
 
 
@@ -376,14 +386,14 @@ export class PklTsLexer extends antlr.Lexer {
     private IdentifierStart_sempred(localContext: antlr.RuleContext | null, predIndex: number): boolean {
         switch (predIndex) {
         case 0:
-            return Character.isUnicodeIdentifierStart(this.inputStream.LA(-1));
+            return this.isUnicodeIdentifierStart(String.fromCharCode(this._input.LA(-1)));
         }
         return true;
     }
     private IdentifierPart_sempred(localContext: antlr.RuleContext | null, predIndex: number): boolean {
         switch (predIndex) {
         case 1:
-            return Character.isUnicodeIdentifierPart(this.inputStream.LA(-1));
+            return this.isUnicodeIdentifierPart(String.fromCharCode(this._input.LA(-1)));
         }
         return true;
     }

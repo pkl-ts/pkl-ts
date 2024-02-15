@@ -26,7 +26,7 @@ class StringInterpolationScope {
 
 @members {
 interpolationScopes: Array<StringInterpolationScope> = [];
-interpolationScope: StringInterpolationScope = StringInterpolationScope::new();
+interpolationScope: StringInterpolationScope = new StringInterpolationScope();
 
 pushInterpolationScope(): void {
  this.interpolationScope = new StringInterpolationScope();
@@ -52,22 +52,24 @@ decParenLevel(): void {
 isPounds(): boolean {
  switch (this.interpolationScope.poundLength) {
    case 0: return true;
-   case 1: return this.inputStream.LA(1) === '#';
+   case 1: return String.fromCharCode(this._input.LA(1)) === '#';
    default:
      let poundLength = this.interpolationScope.poundLength;
      for (let i = 1; i <= poundLength; i++) {
-       if (this.inputStream.LA(i) !== '#') return false;
+       if (String.fromCharCode(this._input.LA(i)) !== '#') return false;
      }
      return true;
  }
 }
 
 isQuote(): boolean {
- return this.inputStream.LA(1) === '"';
+ return String.fromCharCode(this._input.LA(1)) === '"';
 }
 
 endsWithPounds(text: string): boolean {
- assert(text.length >= 2);
+ if(text.length >= 2) {
+  throw new Error("Pounds should not be used in single or double quotes");
+ };
 
  switch (this.interpolationScope.poundLength) {
    case 0: return true;
@@ -92,8 +94,16 @@ removeBackTicks(): void {
 }
 
 isNewlineOrEof(): boolean {
- let input = this.inputStream.LA(1);
- return input === '\n' || input === '\r' || input === Token.EOF;
+ let input = String.fromCharCode(this.inputStream.LA(1));
+ return input === '\n' || input === '\r' || this._input.LA(1) === Token.EOF;
+}
+
+isUnicodeIdentifierStart(char: string): boolean {
+  return /\p{ID_Start}/u.test(char);
+}
+
+isUnicodeIdentifierPart(char: string): boolean {
+  return /\p{ID_Continue}/u.test(char);
 }
 }
 
@@ -270,13 +280,13 @@ fragment QuotedIdentifier
 fragment
 IdentifierStart
   : [a-zA-Z$_] // handle common cases without a predicate
-  | . {Character.isUnicodeIdentifierStart(this.inputStream.LA(-1))}?
+  | . {this.isUnicodeIdentifierStart(String.fromCharCode(this._input.LA(-1)))}?
   ;
 
 fragment
 IdentifierPart
   : [a-zA-Z0-9$_] // handle common cases without a predicate
-  | . {Character.isUnicodeIdentifierPart(this.inputStream.LA(-1))}?
+  | . {this.isUnicodeIdentifierPart(String.fromCharCode(this._input.LA(-1)))}?
   ;
 
 NewlineSemicolon
