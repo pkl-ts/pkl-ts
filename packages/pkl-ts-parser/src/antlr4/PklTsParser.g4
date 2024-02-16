@@ -28,7 +28,7 @@ import { PklTsLexer } from './PklTsLexer';
       let token = this.inputStream.get(i);
       let channel = token.channel;
       if (channel === PklTsLexer.DEFAULT_TOKEN_CHANNEL) return true;
-      if (channel === PklTsLexer.NewlineSemicolonChannel) return false;
+      if (channel === PklTsLexer.NewlineSemicolon) return false;
     }
     return true;
   }
