@@ -2,3 +2,4 @@ dist/
 .cache/
 coverage/
 /tsdoc-metadata.json
+src/antlr4/ts/
