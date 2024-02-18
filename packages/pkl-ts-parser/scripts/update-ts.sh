@@ -17,4 +17,6 @@ pnpm exec antlr4ng \
     -Xexact-output-dir \
     ./src/antlr4/PklTsLexer.g4 ./src/antlr4/PklTsParser.g4
 
-node ./src/antlr4/update-ts.mjs
+node ./scripts/update-ts.mjs
+
+pnpm exec prettier --write ./src/antlr4/ts/*.ts
