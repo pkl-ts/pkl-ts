@@ -2,7 +2,10 @@
 
 set -e
 
-if [ ! -f "package.json" ]; then
+
+# check package.json exists and dirname is pkl-ts-parser
+dirname=$(basename "$(pwd)")
+if [ ! -f "package.json" ] || [ "$dirname" != "pkl-ts-parser" ]; then
   echo "Please run this script from the root of the project"
   exit 1
 fi
