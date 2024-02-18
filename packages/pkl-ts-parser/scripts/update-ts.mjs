@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 main();
 
 function main() {
-  const path = 'src/antlr4/ts/PklTsParser.ts'
+  const path = 'src/antlr4/ts/PklTsParser.ts';
   const input = readFileSync(path, 'utf8');
   const output = fixErrors(input);
   // write
