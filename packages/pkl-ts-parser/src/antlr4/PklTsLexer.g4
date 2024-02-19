@@ -13,96 +13,98 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-lexer grammar PklLexer;
+lexer grammar PklTsLexer;
 
 @header {
-package org.pkl.core.parser.antlr;
+
+class StringInterpolationScope {
+  parenLevel: number = 0;
+  poundLength: number = 0;
+}
+
 }
 
 @members {
-class StringInterpolationScope {
-  int parenLevel = 0;
-  int poundLength = 0;
+interpolationScopes: Array<StringInterpolationScope> = [];
+interpolationScope: StringInterpolationScope = new StringInterpolationScope();
+
+pushInterpolationScope(): void {
+ this.interpolationScope = new StringInterpolationScope();
+ this.interpolationScopes.push(this.interpolationScope);
 }
 
-java.util.Deque<StringInterpolationScope> interpolationScopes = new java.util.ArrayDeque<>();
-StringInterpolationScope interpolationScope;
-
-{ pushInterpolationScope(); }
-
-void pushInterpolationScope() {
-  interpolationScope = new StringInterpolationScope();
-  interpolationScopes.push(interpolationScope);
+incParenLevel(): void {
+ this.interpolationScope.parenLevel += 1;
 }
 
-void incParenLevel() {
-  interpolationScope.parenLevel += 1;
+decParenLevel(): void {
+ if (this.interpolationScope.parenLevel === 0) {
+   if (this.interpolationScopes.length > 1) {
+     this.interpolationScopes.pop();
+     this.interpolationScope = this.interpolationScopes[this.interpolationScopes.length - 1];
+     this.popMode();
+   }
+ } else {
+   this.interpolationScope.parenLevel -= 1;
+ }
 }
 
-void decParenLevel() {
-  if (interpolationScope.parenLevel == 0) {
-    // guard against syntax errors
-    if (interpolationScopes.size() > 1) {
-      interpolationScopes.pop();
-      interpolationScope = interpolationScopes.peek();
-      popMode();
-    }
-  } else {
-    interpolationScope.parenLevel -= 1;
-  }
+isPounds(): boolean {
+ switch (this.interpolationScope.poundLength) {
+   case 0: return true;
+   case 1: return String.fromCharCode(this._input.LA(1)) === '#';
+   default:
+     let poundLength = this.interpolationScope.poundLength;
+     for (let i = 1; i <= poundLength; i++) {
+       if (String.fromCharCode(this._input.LA(i)) !== '#') return false;
+     }
+     return true;
+ }
 }
 
-boolean isPounds() {
-  // optimize for common cases (0, 1)
-  switch (interpolationScope.poundLength) {
-    case 0: return true;
-    case 1: return _input.LA(1) == '#';
-    default:
-      int poundLength = interpolationScope.poundLength;
-      for (int i = 1; i <= poundLength; i++) {
-        if (_input.LA(i) != '#') return false;
-      }
-      return true;
-  }
+isQuote(): boolean {
+ return String.fromCharCode(this._input.LA(1)) === '"';
 }
 
-boolean isQuote() {
-  return _input.LA(1) == '"';
+endsWithPounds(text: string): boolean {
+ if(text.length >= 2) {
+  throw new Error("Pounds should not be used in single or double quotes");
+ };
+
+ switch (this.interpolationScope.poundLength) {
+   case 0: return true;
+   case 1: return text.charAt(text.length - 1) === '#';
+   default:
+     let poundLength = this.interpolationScope.poundLength;
+     let textLength = text.length;
+     if (textLength < poundLength) return false;
+
+     let stop = textLength - poundLength;
+     for (let i = textLength - 1; i >= stop; i--) {
+       if (text.charAt(i) !== '#') return false;
+     }
+
+     return true;
+ }
 }
 
-boolean endsWithPounds(String text) {
-  assert text.length() >= 2;
-
-  // optimize for common cases (0, 1)
-  switch (interpolationScope.poundLength) {
-    case 0: return true;
-    case 1: return text.charAt(text.length() - 1) == '#';
-    default:
-      int poundLength = interpolationScope.poundLength;
-      int textLength = text.length();
-      if (textLength < poundLength) return false;
-
-      int stop = textLength - poundLength;
-      for (int i = textLength - 1; i >= stop; i--) {
-        if (text.charAt(i) != '#') return false;
-      }
-
-      return true;
-  }
+removeBackTicks(): void {
+ let text = this.text;
+ this.text = text.substring(1, text.length - 1);
 }
 
-void removeBackTicks() {
-  String text = getText();
-  setText(text.substring(1, text.length() - 1));
+isNewlineOrEof(): boolean {
+ let input = String.fromCharCode(this.inputStream.LA(1));
+ return input === '\n' || input === '\r' || this._input.LA(1) === Token.EOF;
 }
 
-// look ahead in predicate rather than consume in grammar so that newlines
-// go to NewlineSemicolonChannel, which is important for consumers of that channel
-boolean isNewlineOrEof() {
-  int input = _input.LA(1);
-  return input == '\n' || input == '\r' || input == IntStream.EOF;
+isUnicodeIdentifierStart(char: string): boolean {
+  return /\p{ID_Start}/u.test(char);
 }
 
+isUnicodeIdentifierPart(char: string): boolean {
+  return /\p{ID_Continue}/u.test(char);
+}
 }
 
 channels {
@@ -160,8 +162,8 @@ CASE      : 'case';
 SWITCH    : 'switch';
 VARARG    : 'vararg';
 
-LPAREN      : '(' { incParenLevel(); };
-RPAREN      : ')' { decParenLevel(); };
+LPAREN      : '(' { this.incParenLevel(); };
+RPAREN      : ')' { this.decParenLevel(); };
 LBRACE      : '{';
 RBRACE      : '}';
 LBRACK      : '[';
@@ -200,8 +202,8 @@ SPREAD      : '...';
 QSPREAD     : '...?';
 UNDERSCORE  : '_';
 
-SLQuote    : '#'* '"'   { interpolationScope.poundLength = getText().length() - 1; } -> pushMode(SLString);
-MLQuote    : '#'* '"""' { interpolationScope.poundLength = getText().length() - 3; } -> pushMode(MLString);
+SLQuote    : '#'* '"'   { this.interpolationScope.poundLength = this.text.length - 1; } -> pushMode(SLString);
+MLQuote    : '#'* '"""' { this.interpolationScope.poundLength = this.text.length - 3; } -> pushMode(MLString);
 
 IntLiteral
   : DecimalLiteral
@@ -263,7 +265,7 @@ fragment Exponent
 
 Identifier
   : RegularIdentifier
-  | QuotedIdentifier { removeBackTicks(); }
+  | QuotedIdentifier { this.removeBackTicks(); }
   ;
 
 // Note: Keep in sync with Lexer.isRegularIdentifier()
@@ -278,13 +280,13 @@ fragment QuotedIdentifier
 fragment
 IdentifierStart
   : [a-zA-Z$_] // handle common cases without a predicate
-  | . {Character.isUnicodeIdentifierStart(_input.LA(-1))}?
+  | . {this.isUnicodeIdentifierStart(String.fromCharCode(this._input.LA(-1)))}?
   ;
 
 fragment
 IdentifierPart
   : [a-zA-Z0-9$_] // handle common cases without a predicate
-  | . {Character.isUnicodeIdentifierPart(_input.LA(-1))}?
+  | . {this.isUnicodeIdentifierPart(String.fromCharCode(this._input.LA(-1)))}?
   ;
 
 NewlineSemicolon
@@ -307,11 +309,11 @@ BlockComment
   ;
 
 LineComment
-  : '//' .*? {isNewlineOrEof()}? -> channel(CommentsChannel)
+  : '//' .*? {this.isNewlineOrEof()}? -> channel(CommentsChannel)
   ;
 
 ShebangComment
-  : '#!' .*? {isNewlineOrEof()}? -> channel(ShebangChannel)
+  : '#!' .*? {this.isNewlineOrEof()}? -> channel(ShebangChannel)
   ;
 
 // strict: '\\' Pounds 'u{' HexDigit (HexDigit (HexDigit (HexDigit (HexDigit (HexDigit (HexDigit HexDigit? )?)?)?)?)?)? '}'
@@ -325,9 +327,9 @@ fragment CharacterEscape
   ;
 
 fragment Pounds
-  :      { interpolationScope.poundLength == 0 }?
-  | '#'  { interpolationScope.poundLength == 1 }?
-  | '#'+ { endsWithPounds(getText()) }?
+  :      { this.interpolationScope.poundLength == 0 }?
+  | '#'  { this.interpolationScope.poundLength == 1 }?
+  | '#'+ { this.endsWithPounds(this.text) }?
   ;
 
 fragment Newline
@@ -342,7 +344,7 @@ SLEndQuote
   ;
 
 SLInterpolation
-  : '\\' Pounds '(' { pushInterpolationScope(); } -> pushMode(DEFAULT_MODE)
+  : '\\' Pounds '(' { this.pushInterpolationScope(); } -> pushMode(DEFAULT_MODE)
   ;
 
 SLUnicodeEscape
@@ -355,7 +357,7 @@ SLCharacterEscape
 
 SLCharacters
   : ~["\\\r\n]+ SLCharacters?
-  | ["\\] {!isPounds()}? SLCharacters?
+  | ["\\] {!this.isPounds()}? SLCharacters?
   ;
 
 mode MLString;
@@ -365,7 +367,7 @@ MLEndQuote
   ;
 
 MLInterpolation
-  : '\\' Pounds '(' { pushInterpolationScope(); } -> pushMode(DEFAULT_MODE)
+  : '\\' Pounds '(' { this.pushInterpolationScope(); } -> pushMode(DEFAULT_MODE)
   ;
 
 MLUnicodeEscape
@@ -382,6 +384,6 @@ MLNewline
 
 MLCharacters
   : ~["\\\r\n]+ MLCharacters?
-  | ('\\' | '"""') {!isPounds()}? MLCharacters?
-  | '"' '"'? {!isQuote()}? MLCharacters?
+  | ('\\' | '"""') {!this.isPounds()}? MLCharacters?
+  | '"' '"'? {!this.isQuote()}? MLCharacters?
   ;

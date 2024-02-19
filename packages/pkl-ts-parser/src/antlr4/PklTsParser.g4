@@ -13,29 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-parser grammar PklParser;
+parser grammar PklTsParser;
 
 @header {
-package org.pkl.core.parser.antlr;
+import { PklTsLexer } from './PklTsLexer';
 }
 
 @members {
-/**
- * Returns true if and only if the next token to be consumed is not preceded by a newline or semicolon.
- */
-boolean noNewlineOrSemicolon() {
-  for (int i = _input.index() - 1; i >= 0; i--) {
-    Token token = _input.get(i);
-    int channel = token.getChannel();
-    if (channel == PklLexer.DEFAULT_TOKEN_CHANNEL) return true;
-    if (channel == PklLexer.NewlineSemicolonChannel) return false;
+  /**
+   * Returns true if and only if the next token to be consumed is not preceded by a newline or semicolon.
+   */
+  noNewlineOrSemicolon(): boolean {
+    for (let i = this.inputStream.index - 1; i >= 0; i--) {
+      let token = this.inputStream.get(i);
+      let channel = token.channel;
+      if (channel === PklTsLexer.DEFAULT_TOKEN_CHANNEL) return true;
+      if (channel === PklTsLexer.NewlineSemicolon) return false;
+    }
+    return true;
   }
-  return true;
-}
 }
 
 options {
-  tokenVocab = PklLexer;
+  tokenVocab = PklTsLexer;
 }
 
 replInput
@@ -115,7 +115,7 @@ parameterList
   ;
 
 argumentList
-  : {noNewlineOrSemicolon()}? '(' (es+=expr (errs+=','? es+=expr)*)? err=')'?
+  : {this.noNewlineOrSemicolon()}? '(' (es+=expr (errs+=','? es+=expr)*)? err=')'?
   ;
 
 annotation
@@ -150,7 +150,7 @@ type
   | qualifiedIdentifier typeArgumentList?                                         # declaredType
   | '(' type err=')'?                                                             # parenthesizedType
   | type '?'                                                                      # nullableType
-  | type {noNewlineOrSemicolon()}? t='(' es+=expr (errs+=','? es+=expr)* err=')'? # constrainedType
+  | type {this.noNewlineOrSemicolon()}? t='(' es+=expr (errs+=','? es+=expr)* err=')'? # constrainedType
   | '*' u=type                                                                    # defaultUnionType
   | l=type '|' r=type                                                             # unionType
   | t='(' (ps+=type (errs+=','? ps+=type)*)? err=')'? '->' r=type                 # functionType
@@ -190,7 +190,7 @@ expr
   | 'super' '.' Identifier argumentList?                                        # superAccessExpr
   | 'super' t='[' e=expr err=']'?                                               # superSubscriptExpr
   | expr t=('.' | '?.') Identifier argumentList?                                # qualifiedAccessExpr
-  | l=expr {noNewlineOrSemicolon()}? t='[' r=expr err=']'?                      # subscriptExpr
+  | l=expr {this.noNewlineOrSemicolon()}? t='[' r=expr err=']'?                      # subscriptExpr
   | expr '!!'                                                                   # nonNullExpr
   | '-' expr                                                                    # unaryMinusExpr
   | '!' expr                                                                    # logicalNotExpr
@@ -198,7 +198,7 @@ expr
   // for some reason, moving rhs of rules starting with `l=expr` into a
   // separate rule (to avoid repeated parsing of `expr`) messes up precedence
   | l=expr t=('*' | '/' | '~/' | '%') r=expr                                    # multiplicativeExpr
-  | l=expr (t='+' | {noNewlineOrSemicolon()}? t='-') r=expr                     # additiveExpr
+  | l=expr (t='+' | {this.noNewlineOrSemicolon()}? t='-') r=expr                     # additiveExpr
   | l=expr t=('<' | '>' | '<=' | '>=') r=expr                                   # comparisonExpr
   | l=expr t=('is' | 'as') r=type                                               # typeTestExpr
   | l=expr t=('==' | '!=') r=expr                                               # equalityExpr

@@ -28,8 +28,9 @@
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,yml,css,scss,md}'",
     "test": "vitest --run --coverage",
     "test:watch": "vitest",
+    "build:antlr": "./scripts/update-ts.sh",
     "build:dts": "api-extractor run --local --verbose && prettier --write index.d.ts",
-    "build": "tsc && vite build && pnpm build:dts",
+    "build": "pnpm build:antlr && tsc && vite build && pnpm build:dts",
     "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
