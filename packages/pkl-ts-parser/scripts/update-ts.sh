@@ -19,4 +19,6 @@ pnpm exec antlr4ng \
 
 node ./scripts/update-ts.mjs
 
+jscodeshift --extensions=ts,js --parser=ts -t scripts/add-type.mjs src/antlr4/ts/PklTsParser.ts
+
 pnpm exec prettier --write ./src/antlr4/ts/*.ts

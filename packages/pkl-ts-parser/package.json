@@ -40,6 +40,7 @@
     "antlr4ng-cli": "^1.0.7",
     "eslint": "^8",
     "eslint-config-react-app": "^7",
+    "jscodeshift": "^0.15.1",
     "lint-staged": "^15",
     "prettier": "^3",
     "typescript": "^5",

@@ -6085,8 +6085,24 @@ export class TypeContext extends antlr.ParserRuleContext {
   public override copyFrom(ctx: TypeContext): void {
     super.copyFrom(ctx);
   }
+
+  public get typed():
+    | DefaultUnionTypeContext
+    | ModuleTypeContext
+    | StringLiteralTypeContext
+    | NothingTypeContext
+    | NullableTypeContext
+    | ParenthesizedTypeContext
+    | DeclaredTypeContext
+    | FunctionTypeContext
+    | ConstrainedTypeContext
+    | UnknownTypeContext
+    | UnionTypeContext {
+    return this as any;
+  }
 }
 export class DefaultUnionTypeContext extends TypeContext {
+  public readonly _type: 'DefaultUnionTypeContext' = 'DefaultUnionTypeContext';
   public _u?: TypeContext;
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
@@ -6119,6 +6135,7 @@ export class DefaultUnionTypeContext extends TypeContext {
   }
 }
 export class ModuleTypeContext extends TypeContext {
+  public readonly _type: 'ModuleTypeContext' = 'ModuleTypeContext';
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6147,6 +6164,8 @@ export class ModuleTypeContext extends TypeContext {
   }
 }
 export class StringLiteralTypeContext extends TypeContext {
+  public readonly _type: 'StringLiteralTypeContext' =
+    'StringLiteralTypeContext';
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6175,6 +6194,7 @@ export class StringLiteralTypeContext extends TypeContext {
   }
 }
 export class NothingTypeContext extends TypeContext {
+  public readonly _type: 'NothingTypeContext' = 'NothingTypeContext';
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6203,6 +6223,7 @@ export class NothingTypeContext extends TypeContext {
   }
 }
 export class NullableTypeContext extends TypeContext {
+  public readonly _type: 'NullableTypeContext' = 'NullableTypeContext';
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6234,6 +6255,8 @@ export class NullableTypeContext extends TypeContext {
   }
 }
 export class ParenthesizedTypeContext extends TypeContext {
+  public readonly _type: 'ParenthesizedTypeContext' =
+    'ParenthesizedTypeContext';
   public _err?: Token | null;
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
@@ -6269,6 +6292,7 @@ export class ParenthesizedTypeContext extends TypeContext {
   }
 }
 export class DeclaredTypeContext extends TypeContext {
+  public readonly _type: 'DeclaredTypeContext' = 'DeclaredTypeContext';
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6300,6 +6324,7 @@ export class DeclaredTypeContext extends TypeContext {
   }
 }
 export class FunctionTypeContext extends TypeContext {
+  public readonly _type: 'FunctionTypeContext' = 'FunctionTypeContext';
   public _t?: Token | null;
   public _type_?: TypeContext;
   public _ps: TypeContext[] = [];
@@ -6359,6 +6384,7 @@ export class FunctionTypeContext extends TypeContext {
   }
 }
 export class ConstrainedTypeContext extends TypeContext {
+  public readonly _type: 'ConstrainedTypeContext' = 'ConstrainedTypeContext';
   public _t?: Token | null;
   public _expr?: ExprContext;
   public _es: ExprContext[] = [];
@@ -6417,6 +6443,7 @@ export class ConstrainedTypeContext extends TypeContext {
   }
 }
 export class UnknownTypeContext extends TypeContext {
+  public readonly _type: 'UnknownTypeContext' = 'UnknownTypeContext';
   public constructor(ctx: TypeContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6445,6 +6472,7 @@ export class UnknownTypeContext extends TypeContext {
   }
 }
 export class UnionTypeContext extends TypeContext {
+  public readonly _type: 'UnionTypeContext' = 'UnionTypeContext';
   public _l?: TypeContext;
   public _r?: TypeContext;
   public constructor(ctx: TypeContext) {
@@ -6571,8 +6599,51 @@ export class ExprContext extends antlr.ParserRuleContext {
   public override copyFrom(ctx: ExprContext): void {
     super.copyFrom(ctx);
   }
+
+  public get typed():
+    | NewExprContext
+    | ThisExprContext
+    | PipeExprContext
+    | ExponentiationExprContext
+    | SubscriptExprContext
+    | UnqualifiedAccessExprContext
+    | TrueLiteralContext
+    | AdditiveExprContext
+    | LetExprContext
+    | LogicalNotExprContext
+    | FalseLiteralContext
+    | UnaryMinusExprContext
+    | ParenthesizedExprContext
+    | FloatLiteralContext
+    | IfExprContext
+    | ModuleExprContext
+    | ImportExprContext
+    | SingleLineStringLiteralContext
+    | ThrowExprContext
+    | NullLiteralContext
+    | LogicalAndExprContext
+    | IntLiteralContext
+    | ReadExprContext
+    | NullCoalesceExprContext
+    | ComparisonExprContext
+    | MultiLineStringLiteralContext
+    | LogicalOrExprContext
+    | TypeTestExprContext
+    | SuperSubscriptExprContext
+    | SuperAccessExprContext
+    | FunctionLiteralContext
+    | OuterExprContext
+    | MultiplicativeExprContext
+    | QualifiedAccessExprContext
+    | TraceExprContext
+    | EqualityExprContext
+    | AmendExprContext
+    | NonNullExprContext {
+    return this as any;
+  }
 }
 export class NewExprContext extends ExprContext {
+  public readonly _type: 'NewExprContext' = 'NewExprContext';
   public _t?: Token | null;
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
@@ -6608,6 +6679,7 @@ export class NewExprContext extends ExprContext {
   }
 }
 export class ThisExprContext extends ExprContext {
+  public readonly _type: 'ThisExprContext' = 'ThisExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6636,6 +6708,7 @@ export class ThisExprContext extends ExprContext {
   }
 }
 export class PipeExprContext extends ExprContext {
+  public readonly _type: 'PipeExprContext' = 'PipeExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -6676,6 +6749,8 @@ export class PipeExprContext extends ExprContext {
   }
 }
 export class ExponentiationExprContext extends ExprContext {
+  public readonly _type: 'ExponentiationExprContext' =
+    'ExponentiationExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -6716,6 +6791,7 @@ export class ExponentiationExprContext extends ExprContext {
   }
 }
 export class SubscriptExprContext extends ExprContext {
+  public readonly _type: 'SubscriptExprContext' = 'SubscriptExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -6760,6 +6836,8 @@ export class SubscriptExprContext extends ExprContext {
   }
 }
 export class UnqualifiedAccessExprContext extends ExprContext {
+  public readonly _type: 'UnqualifiedAccessExprContext' =
+    'UnqualifiedAccessExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6791,6 +6869,7 @@ export class UnqualifiedAccessExprContext extends ExprContext {
   }
 }
 export class TrueLiteralContext extends ExprContext {
+  public readonly _type: 'TrueLiteralContext' = 'TrueLiteralContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6819,6 +6898,7 @@ export class TrueLiteralContext extends ExprContext {
   }
 }
 export class AdditiveExprContext extends ExprContext {
+  public readonly _type: 'AdditiveExprContext' = 'AdditiveExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -6862,6 +6942,7 @@ export class AdditiveExprContext extends ExprContext {
   }
 }
 export class LetExprContext extends ExprContext {
+  public readonly _type: 'LetExprContext' = 'LetExprContext';
   public _l?: ExprContext;
   public _err?: Token | null;
   public _r?: ExprContext;
@@ -6914,6 +6995,7 @@ export class LetExprContext extends ExprContext {
   }
 }
 export class LogicalNotExprContext extends ExprContext {
+  public readonly _type: 'LogicalNotExprContext' = 'LogicalNotExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6945,6 +7027,7 @@ export class LogicalNotExprContext extends ExprContext {
   }
 }
 export class FalseLiteralContext extends ExprContext {
+  public readonly _type: 'FalseLiteralContext' = 'FalseLiteralContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -6973,6 +7056,7 @@ export class FalseLiteralContext extends ExprContext {
   }
 }
 export class UnaryMinusExprContext extends ExprContext {
+  public readonly _type: 'UnaryMinusExprContext' = 'UnaryMinusExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7004,6 +7088,8 @@ export class UnaryMinusExprContext extends ExprContext {
   }
 }
 export class ParenthesizedExprContext extends ExprContext {
+  public readonly _type: 'ParenthesizedExprContext' =
+    'ParenthesizedExprContext';
   public _err?: Token | null;
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
@@ -7039,6 +7125,7 @@ export class ParenthesizedExprContext extends ExprContext {
   }
 }
 export class FloatLiteralContext extends ExprContext {
+  public readonly _type: 'FloatLiteralContext' = 'FloatLiteralContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7067,6 +7154,7 @@ export class FloatLiteralContext extends ExprContext {
   }
 }
 export class IfExprContext extends ExprContext {
+  public readonly _type: 'IfExprContext' = 'IfExprContext';
   public _c?: ExprContext;
   public _err?: Token | null;
   public _l?: ExprContext;
@@ -7117,6 +7205,7 @@ export class IfExprContext extends ExprContext {
   }
 }
 export class ModuleExprContext extends ExprContext {
+  public readonly _type: 'ModuleExprContext' = 'ModuleExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7145,6 +7234,7 @@ export class ModuleExprContext extends ExprContext {
   }
 }
 export class ImportExprContext extends ExprContext {
+  public readonly _type: 'ImportExprContext' = 'ImportExprContext';
   public _t?: Token | null;
   public _err?: Token | null;
   public constructor(ctx: ExprContext) {
@@ -7187,6 +7277,8 @@ export class ImportExprContext extends ExprContext {
   }
 }
 export class SingleLineStringLiteralContext extends ExprContext {
+  public readonly _type: 'SingleLineStringLiteralContext' =
+    'SingleLineStringLiteralContext';
   public _t?: Token | null;
   public _t2?: Token | null;
   public constructor(ctx: ExprContext) {
@@ -7231,6 +7323,7 @@ export class SingleLineStringLiteralContext extends ExprContext {
   }
 }
 export class ThrowExprContext extends ExprContext {
+  public readonly _type: 'ThrowExprContext' = 'ThrowExprContext';
   public _err?: Token | null;
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
@@ -7269,6 +7362,7 @@ export class ThrowExprContext extends ExprContext {
   }
 }
 export class NullLiteralContext extends ExprContext {
+  public readonly _type: 'NullLiteralContext' = 'NullLiteralContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7297,6 +7391,7 @@ export class NullLiteralContext extends ExprContext {
   }
 }
 export class LogicalAndExprContext extends ExprContext {
+  public readonly _type: 'LogicalAndExprContext' = 'LogicalAndExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -7337,6 +7432,7 @@ export class LogicalAndExprContext extends ExprContext {
   }
 }
 export class IntLiteralContext extends ExprContext {
+  public readonly _type: 'IntLiteralContext' = 'IntLiteralContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7365,6 +7461,7 @@ export class IntLiteralContext extends ExprContext {
   }
 }
 export class ReadExprContext extends ExprContext {
+  public readonly _type: 'ReadExprContext' = 'ReadExprContext';
   public _t?: Token | null;
   public _err?: Token | null;
   public constructor(ctx: ExprContext) {
@@ -7410,6 +7507,7 @@ export class ReadExprContext extends ExprContext {
   }
 }
 export class NullCoalesceExprContext extends ExprContext {
+  public readonly _type: 'NullCoalesceExprContext' = 'NullCoalesceExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -7450,6 +7548,7 @@ export class NullCoalesceExprContext extends ExprContext {
   }
 }
 export class ComparisonExprContext extends ExprContext {
+  public readonly _type: 'ComparisonExprContext' = 'ComparisonExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -7499,6 +7598,8 @@ export class ComparisonExprContext extends ExprContext {
   }
 }
 export class MultiLineStringLiteralContext extends ExprContext {
+  public readonly _type: 'MultiLineStringLiteralContext' =
+    'MultiLineStringLiteralContext';
   public _t?: Token | null;
   public _t2?: Token | null;
   public constructor(ctx: ExprContext) {
@@ -7543,6 +7644,7 @@ export class MultiLineStringLiteralContext extends ExprContext {
   }
 }
 export class LogicalOrExprContext extends ExprContext {
+  public readonly _type: 'LogicalOrExprContext' = 'LogicalOrExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -7583,6 +7685,7 @@ export class LogicalOrExprContext extends ExprContext {
   }
 }
 export class TypeTestExprContext extends ExprContext {
+  public readonly _type: 'TypeTestExprContext' = 'TypeTestExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: TypeContext;
@@ -7623,6 +7726,8 @@ export class TypeTestExprContext extends ExprContext {
   }
 }
 export class SuperSubscriptExprContext extends ExprContext {
+  public readonly _type: 'SuperSubscriptExprContext' =
+    'SuperSubscriptExprContext';
   public _t?: Token | null;
   public _e?: ExprContext;
   public _err?: Token | null;
@@ -7663,6 +7768,7 @@ export class SuperSubscriptExprContext extends ExprContext {
   }
 }
 export class SuperAccessExprContext extends ExprContext {
+  public readonly _type: 'SuperAccessExprContext' = 'SuperAccessExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7700,6 +7806,7 @@ export class SuperAccessExprContext extends ExprContext {
   }
 }
 export class FunctionLiteralContext extends ExprContext {
+  public readonly _type: 'FunctionLiteralContext' = 'FunctionLiteralContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7734,6 +7841,7 @@ export class FunctionLiteralContext extends ExprContext {
   }
 }
 export class OuterExprContext extends ExprContext {
+  public readonly _type: 'OuterExprContext' = 'OuterExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7762,6 +7870,8 @@ export class OuterExprContext extends ExprContext {
   }
 }
 export class MultiplicativeExprContext extends ExprContext {
+  public readonly _type: 'MultiplicativeExprContext' =
+    'MultiplicativeExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -7811,6 +7921,8 @@ export class MultiplicativeExprContext extends ExprContext {
   }
 }
 export class QualifiedAccessExprContext extends ExprContext {
+  public readonly _type: 'QualifiedAccessExprContext' =
+    'QualifiedAccessExprContext';
   public _t?: Token | null;
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
@@ -7852,6 +7964,7 @@ export class QualifiedAccessExprContext extends ExprContext {
   }
 }
 export class TraceExprContext extends ExprContext {
+  public readonly _type: 'TraceExprContext' = 'TraceExprContext';
   public _err?: Token | null;
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
@@ -7890,6 +8003,7 @@ export class TraceExprContext extends ExprContext {
   }
 }
 export class EqualityExprContext extends ExprContext {
+  public readonly _type: 'EqualityExprContext' = 'EqualityExprContext';
   public _l?: ExprContext;
   public _t?: Token | null;
   public _r?: ExprContext;
@@ -7933,6 +8047,7 @@ export class EqualityExprContext extends ExprContext {
   }
 }
 export class AmendExprContext extends ExprContext {
+  public readonly _type: 'AmendExprContext' = 'AmendExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -7964,6 +8079,7 @@ export class AmendExprContext extends ExprContext {
   }
 }
 export class NonNullExprContext extends ExprContext {
+  public readonly _type: 'NonNullExprContext' = 'NonNullExprContext';
   public constructor(ctx: ExprContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -8082,8 +8198,21 @@ export class ObjectMemberContext extends antlr.ParserRuleContext {
   public override copyFrom(ctx: ObjectMemberContext): void {
     super.copyFrom(ctx);
   }
+
+  public get typed():
+    | WhenGeneratorContext
+    | MemberPredicateContext
+    | ObjectSpreadContext
+    | ForGeneratorContext
+    | ObjectPropertyContext
+    | ObjectElementContext
+    | ObjectMethodContext
+    | ObjectEntryContext {
+    return this as any;
+  }
 }
 export class WhenGeneratorContext extends ObjectMemberContext {
+  public readonly _type: 'WhenGeneratorContext' = 'WhenGeneratorContext';
   public _e?: ExprContext;
   public _err?: Token | null;
   public _b1?: ObjectBodyContext;
@@ -8139,6 +8268,7 @@ export class WhenGeneratorContext extends ObjectMemberContext {
   }
 }
 export class MemberPredicateContext extends ObjectMemberContext {
+  public readonly _type: 'MemberPredicateContext' = 'MemberPredicateContext';
   public _t?: Token | null;
   public _k?: ExprContext;
   public _err1?: Token | null;
@@ -8204,6 +8334,7 @@ export class MemberPredicateContext extends ObjectMemberContext {
   }
 }
 export class ObjectSpreadContext extends ObjectMemberContext {
+  public readonly _type: 'ObjectSpreadContext' = 'ObjectSpreadContext';
   public constructor(ctx: ObjectMemberContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -8238,6 +8369,7 @@ export class ObjectSpreadContext extends ObjectMemberContext {
   }
 }
 export class ForGeneratorContext extends ObjectMemberContext {
+  public readonly _type: 'ForGeneratorContext' = 'ForGeneratorContext';
   public _t1?: ParameterContext;
   public _t2?: ParameterContext;
   public _e?: ExprContext;
@@ -8297,6 +8429,7 @@ export class ForGeneratorContext extends ObjectMemberContext {
   }
 }
 export class ObjectPropertyContext extends ObjectMemberContext {
+  public readonly _type: 'ObjectPropertyContext' = 'ObjectPropertyContext';
   public constructor(ctx: ObjectMemberContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -8354,6 +8487,7 @@ export class ObjectPropertyContext extends ObjectMemberContext {
   }
 }
 export class ObjectElementContext extends ObjectMemberContext {
+  public readonly _type: 'ObjectElementContext' = 'ObjectElementContext';
   public constructor(ctx: ObjectMemberContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -8382,6 +8516,7 @@ export class ObjectElementContext extends ObjectMemberContext {
   }
 }
 export class ObjectMethodContext extends ObjectMemberContext {
+  public readonly _type: 'ObjectMethodContext' = 'ObjectMethodContext';
   public constructor(ctx: ObjectMemberContext) {
     super(ctx.parent, ctx.invokingState);
     super.copyFrom(ctx);
@@ -8416,6 +8551,7 @@ export class ObjectMethodContext extends ObjectMemberContext {
   }
 }
 export class ObjectEntryContext extends ObjectMemberContext {
+  public readonly _type: 'ObjectEntryContext' = 'ObjectEntryContext';
   public _t?: Token | null;
   public _k?: ExprContext;
   public _err1?: Token | null;
