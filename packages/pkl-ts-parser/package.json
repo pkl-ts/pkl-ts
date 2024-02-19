@@ -36,6 +36,7 @@
     "@microsoft/api-extractor": "^7",
     "@types/node": "^20",
     "@vitest/coverage-istanbul": "^1",
+    "antlr4ng-cli": "^1.0.7",
     "eslint": "^8",
     "eslint-config-react-app": "^7",
     "lint-staged": "^15",
@@ -44,5 +45,8 @@
     "vite": "^5",
     "vite-plugin-dts": "^3",
     "vitest": "^1"
+  },
+  "dependencies": {
+    "antlr4ng": "^2.0.10"
   }
 }

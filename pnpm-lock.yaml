@@ -13,6 +13,10 @@ importers:
         version: 9.0.10
 
   packages/pkl-ts-parser:
+    dependencies:
+      antlr4ng:
+        specifier: ^2.0.10
+        version: 2.0.10(antlr4ng-cli@1.0.7)
     devDependencies:
       '@microsoft/api-extractor':
         specifier: ^7
@@ -23,6 +27,9 @@ importers:
       '@vitest/coverage-istanbul':
         specifier: ^1
         version: 1.2.2(vitest@1.2.2)
+      antlr4ng-cli:
+        specifier: ^1.0.7
+        version: 1.0.7
       eslint:
         specifier: ^8
         version: 8.56.0
@@ -2431,6 +2438,18 @@ packages:
     resolution: {integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==}
     engines: {node: '>=12'}
     dev: true
+
+  /antlr4ng-cli@1.0.7:
+    resolution: {integrity: sha512-qN2FsDBmLvsQcA5CWTrPz8I8gNXeS1fgXBBhI78VyxBSBV/EJgqy8ks6IDTC9jyugpl40csCQ4sL5K4i2YZ/2w==}
+    hasBin: true
+
+  /antlr4ng@2.0.10(antlr4ng-cli@1.0.7):
+    resolution: {integrity: sha512-cDXmkjum5TSgtgKyKtNN3Zk8ebXeZXOHS7e5pIAnyuKdAQB1r/EzJl+1Vro5JdJCWfgtZ2IqJ3KNvRNuCMjgmQ==}
+    peerDependencies:
+      antlr4ng-cli: 1.0.7
+    dependencies:
+      antlr4ng-cli: 1.0.7
+    dev: false
 
   /argparse@1.0.10:
     resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
