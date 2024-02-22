@@ -6086,7 +6086,7 @@ export class TypeContext extends antlr.ParserRuleContext {
     super.copyFrom(ctx);
   }
 
-  public get typed():
+  public get _typed():
     | DefaultUnionTypeContext
     | ModuleTypeContext
     | StringLiteralTypeContext
@@ -6600,7 +6600,7 @@ export class ExprContext extends antlr.ParserRuleContext {
     super.copyFrom(ctx);
   }
 
-  public get typed():
+  public get _typed():
     | NewExprContext
     | ThisExprContext
     | PipeExprContext
@@ -8199,7 +8199,7 @@ export class ObjectMemberContext extends antlr.ParserRuleContext {
     super.copyFrom(ctx);
   }
 
-  public get typed():
+  public get _typed():
     | WhenGeneratorContext
     | MemberPredicateContext
     | ObjectSpreadContext
