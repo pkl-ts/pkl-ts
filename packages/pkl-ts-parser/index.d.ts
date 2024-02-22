@@ -7,7 +7,7 @@ import { ParseTreeListener } from 'antlr4ng';
 import { TerminalNode } from 'antlr4ng';
 import { Token } from 'antlr4ng';
 
-declare class AdditiveExprContext extends ExprContext {
+export declare class AdditiveExprContext extends ExprContext {
   readonly _type: 'AdditiveExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -22,7 +22,7 @@ declare class AdditiveExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class AmendExprContext extends ExprContext {
+export declare class AmendExprContext extends ExprContext {
   readonly _type: 'AmendExprContext';
   constructor(ctx: ExprContext);
   expr(): ExprContext;
@@ -32,7 +32,7 @@ declare class AmendExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class AnnotationContext extends antlr.ParserRuleContext {
+export declare class AnnotationContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   AT(): antlr.TerminalNode;
   type(): TypeContext;
@@ -45,7 +45,7 @@ declare class AnnotationContext extends antlr.ParserRuleContext {
 
 export { antlr };
 
-declare class ArgumentListContext extends antlr.ParserRuleContext {
+export declare class ArgumentListContext extends antlr.ParserRuleContext {
   _expr?: ExprContext;
   _es: ExprContext[];
   _s53?: Token | null;
@@ -64,7 +64,7 @@ declare class ArgumentListContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ClassBodyContext extends antlr.ParserRuleContext {
+export declare class ClassBodyContext extends antlr.ParserRuleContext {
   _classProperty?: ClassPropertyContext;
   _ps: ClassPropertyContext[];
   _classMethod?: ClassMethodContext;
@@ -83,7 +83,7 @@ declare class ClassBodyContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ClassHeaderContext extends antlr.ParserRuleContext {
+export declare class ClassHeaderContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   CLASS(): antlr.TerminalNode;
   Identifier(): antlr.TerminalNode;
@@ -98,7 +98,7 @@ declare class ClassHeaderContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ClassMethodContext extends antlr.ParserRuleContext {
+export declare class ClassMethodContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   methodHeader(): MethodHeaderContext;
@@ -113,7 +113,7 @@ declare class ClassMethodContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ClassPropertyContext extends antlr.ParserRuleContext {
+export declare class ClassPropertyContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   Identifier(): antlr.TerminalNode;
@@ -133,7 +133,7 @@ declare class ClassPropertyContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ClazzContext extends antlr.ParserRuleContext {
+export declare class ClazzContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   classHeader(): ClassHeaderContext;
@@ -147,7 +147,7 @@ declare class ClazzContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ComparisonExprContext extends ExprContext {
+export declare class ComparisonExprContext extends ExprContext {
   readonly _type: 'ComparisonExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -164,7 +164,7 @@ declare class ComparisonExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ConstrainedTypeContext extends TypeContext {
+export declare class ConstrainedTypeContext extends TypeContext {
   readonly _type: 'ConstrainedTypeContext';
   _t?: Token | null;
   _expr?: ExprContext;
@@ -185,7 +185,7 @@ declare class ConstrainedTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class DeclaredTypeContext extends TypeContext {
+export declare class DeclaredTypeContext extends TypeContext {
   readonly _type: 'DeclaredTypeContext';
   constructor(ctx: TypeContext);
   qualifiedIdentifier(): QualifiedIdentifierContext;
@@ -195,7 +195,7 @@ declare class DeclaredTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class DefaultUnionTypeContext extends TypeContext {
+export declare class DefaultUnionTypeContext extends TypeContext {
   readonly _type: 'DefaultUnionTypeContext';
   _u?: TypeContext;
   constructor(ctx: TypeContext);
@@ -206,7 +206,7 @@ declare class DefaultUnionTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class EqualityExprContext extends ExprContext {
+export declare class EqualityExprContext extends ExprContext {
   readonly _type: 'EqualityExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -221,7 +221,7 @@ declare class EqualityExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ExponentiationExprContext extends ExprContext {
+export declare class ExponentiationExprContext extends ExprContext {
   readonly _type: 'ExponentiationExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -235,7 +235,7 @@ declare class ExponentiationExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ExprContext extends antlr.ParserRuleContext {
+export declare class ExprContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   get ruleIndex(): number;
   copyFrom(ctx: ExprContext): void;
@@ -280,7 +280,7 @@ declare class ExprContext extends antlr.ParserRuleContext {
     | NonNullExprContext;
 }
 
-declare class ExprInputContext extends antlr.ParserRuleContext {
+export declare class ExprInputContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   expr(): ExprContext;
   EOF(): antlr.TerminalNode;
@@ -290,7 +290,7 @@ declare class ExprInputContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class FalseLiteralContext extends ExprContext {
+export declare class FalseLiteralContext extends ExprContext {
   readonly _type: 'FalseLiteralContext';
   constructor(ctx: ExprContext);
   FALSE(): antlr.TerminalNode;
@@ -299,7 +299,7 @@ declare class FalseLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class FloatLiteralContext extends ExprContext {
+export declare class FloatLiteralContext extends ExprContext {
   readonly _type: 'FloatLiteralContext';
   constructor(ctx: ExprContext);
   FloatLiteral(): antlr.TerminalNode;
@@ -308,7 +308,7 @@ declare class FloatLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ForGeneratorContext extends ObjectMemberContext {
+export declare class ForGeneratorContext extends ObjectMemberContext {
   readonly _type: 'ForGeneratorContext';
   _t1?: ParameterContext;
   _t2?: ParameterContext;
@@ -329,7 +329,7 @@ declare class ForGeneratorContext extends ObjectMemberContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class FunctionLiteralContext extends ExprContext {
+export declare class FunctionLiteralContext extends ExprContext {
   readonly _type: 'FunctionLiteralContext';
   constructor(ctx: ExprContext);
   parameterList(): ParameterListContext;
@@ -340,7 +340,7 @@ declare class FunctionLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class FunctionTypeContext extends TypeContext {
+export declare class FunctionTypeContext extends TypeContext {
   readonly _type: 'FunctionTypeContext';
   _t?: Token | null;
   _type_?: TypeContext;
@@ -362,7 +362,7 @@ declare class FunctionTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class IfExprContext extends ExprContext {
+export declare class IfExprContext extends ExprContext {
   readonly _type: 'IfExprContext';
   _c?: ExprContext;
   _err?: Token | null;
@@ -380,7 +380,7 @@ declare class IfExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ImportClauseContext extends antlr.ParserRuleContext {
+export declare class ImportClauseContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   stringConstant(): StringConstantContext;
@@ -394,7 +394,7 @@ declare class ImportClauseContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ImportExprContext extends ExprContext {
+export declare class ImportExprContext extends ExprContext {
   readonly _type: 'ImportExprContext';
   _t?: Token | null;
   _err?: Token | null;
@@ -409,7 +409,7 @@ declare class ImportExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class IntLiteralContext extends ExprContext {
+export declare class IntLiteralContext extends ExprContext {
   readonly _type: 'IntLiteralContext';
   constructor(ctx: ExprContext);
   IntLiteral(): antlr.TerminalNode;
@@ -418,7 +418,7 @@ declare class IntLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class LetExprContext extends ExprContext {
+export declare class LetExprContext extends ExprContext {
   readonly _type: 'LetExprContext';
   _l?: ExprContext;
   _err?: Token | null;
@@ -436,7 +436,7 @@ declare class LetExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class LogicalAndExprContext extends ExprContext {
+export declare class LogicalAndExprContext extends ExprContext {
   readonly _type: 'LogicalAndExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -450,7 +450,7 @@ declare class LogicalAndExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class LogicalNotExprContext extends ExprContext {
+export declare class LogicalNotExprContext extends ExprContext {
   readonly _type: 'LogicalNotExprContext';
   constructor(ctx: ExprContext);
   NOT(): antlr.TerminalNode;
@@ -460,7 +460,7 @@ declare class LogicalNotExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class LogicalOrExprContext extends ExprContext {
+export declare class LogicalOrExprContext extends ExprContext {
   readonly _type: 'LogicalOrExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -474,7 +474,7 @@ declare class LogicalOrExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class MemberPredicateContext extends ObjectMemberContext {
+export declare class MemberPredicateContext extends ObjectMemberContext {
   readonly _type: 'MemberPredicateContext';
   _t?: Token | null;
   _k?: ExprContext;
@@ -495,7 +495,7 @@ declare class MemberPredicateContext extends ObjectMemberContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class MethodHeaderContext extends antlr.ParserRuleContext {
+export declare class MethodHeaderContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   FUNCTION(): antlr.TerminalNode;
   Identifier(): antlr.TerminalNode;
@@ -510,7 +510,7 @@ declare class MethodHeaderContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ModifierContext extends antlr.ParserRuleContext {
+export declare class ModifierContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   EXTERNAL(): antlr.TerminalNode | null;
@@ -526,7 +526,7 @@ declare class ModifierContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ModuleContext extends antlr.ParserRuleContext {
+export declare class ModuleContext extends antlr.ParserRuleContext {
   _importClause?: ImportClauseContext;
   _is: ImportClauseContext[];
   _clazz?: ClazzContext;
@@ -556,7 +556,7 @@ declare class ModuleContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ModuleDeclContext extends antlr.ParserRuleContext {
+export declare class ModuleDeclContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   moduleHeader(): ModuleHeaderContext;
@@ -569,7 +569,7 @@ declare class ModuleDeclContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ModuleExprContext extends ExprContext {
+export declare class ModuleExprContext extends ExprContext {
   readonly _type: 'ModuleExprContext';
   constructor(ctx: ExprContext);
   MODULE(): antlr.TerminalNode;
@@ -578,7 +578,7 @@ declare class ModuleExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ModuleExtendsOrAmendsClauseContext extends antlr.ParserRuleContext {
+export declare class ModuleExtendsOrAmendsClauseContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   stringConstant(): StringConstantContext;
@@ -590,7 +590,7 @@ declare class ModuleExtendsOrAmendsClauseContext extends antlr.ParserRuleContext
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ModuleHeaderContext extends antlr.ParserRuleContext {
+export declare class ModuleHeaderContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   MODULE(): antlr.TerminalNode | null;
   qualifiedIdentifier(): QualifiedIdentifierContext | null;
@@ -603,7 +603,7 @@ declare class ModuleHeaderContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ModuleTypeContext extends TypeContext {
+export declare class ModuleTypeContext extends TypeContext {
   readonly _type: 'ModuleTypeContext';
   constructor(ctx: TypeContext);
   MODULE(): antlr.TerminalNode;
@@ -612,7 +612,7 @@ declare class ModuleTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class MultiLineStringLiteralContext extends ExprContext {
+export declare class MultiLineStringLiteralContext extends ExprContext {
   readonly _type: 'MultiLineStringLiteralContext';
   _t?: Token | null;
   _t2?: Token | null;
@@ -626,7 +626,7 @@ declare class MultiLineStringLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class MultiLineStringPartContext extends antlr.ParserRuleContext {
+export declare class MultiLineStringPartContext extends antlr.ParserRuleContext {
   _e?: ExprContext;
   _MLCharacters?: Token | null;
   _ts: antlr.Token[];
@@ -651,7 +651,7 @@ declare class MultiLineStringPartContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class MultiplicativeExprContext extends ExprContext {
+export declare class MultiplicativeExprContext extends ExprContext {
   readonly _type: 'MultiplicativeExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -668,7 +668,7 @@ declare class MultiplicativeExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class NewExprContext extends ExprContext {
+export declare class NewExprContext extends ExprContext {
   readonly _type: 'NewExprContext';
   _t?: Token | null;
   constructor(ctx: ExprContext);
@@ -680,7 +680,7 @@ declare class NewExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class NonNullExprContext extends ExprContext {
+export declare class NonNullExprContext extends ExprContext {
   readonly _type: 'NonNullExprContext';
   constructor(ctx: ExprContext);
   expr(): ExprContext;
@@ -690,7 +690,7 @@ declare class NonNullExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class NothingTypeContext extends TypeContext {
+export declare class NothingTypeContext extends TypeContext {
   readonly _type: 'NothingTypeContext';
   constructor(ctx: TypeContext);
   NOTHING(): antlr.TerminalNode;
@@ -699,7 +699,7 @@ declare class NothingTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class NullableTypeContext extends TypeContext {
+export declare class NullableTypeContext extends TypeContext {
   readonly _type: 'NullableTypeContext';
   constructor(ctx: TypeContext);
   type(): TypeContext;
@@ -709,7 +709,7 @@ declare class NullableTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class NullCoalesceExprContext extends ExprContext {
+export declare class NullCoalesceExprContext extends ExprContext {
   readonly _type: 'NullCoalesceExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -723,7 +723,7 @@ declare class NullCoalesceExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class NullLiteralContext extends ExprContext {
+export declare class NullLiteralContext extends ExprContext {
   readonly _type: 'NullLiteralContext';
   constructor(ctx: ExprContext);
   NULL(): antlr.TerminalNode;
@@ -732,7 +732,7 @@ declare class NullLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ObjectBodyContext extends antlr.ParserRuleContext {
+export declare class ObjectBodyContext extends antlr.ParserRuleContext {
   _parameter?: ParameterContext;
   _ps: ParameterContext[];
   _s53?: Token | null;
@@ -754,7 +754,7 @@ declare class ObjectBodyContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ObjectElementContext extends ObjectMemberContext {
+export declare class ObjectElementContext extends ObjectMemberContext {
   readonly _type: 'ObjectElementContext';
   constructor(ctx: ObjectMemberContext);
   expr(): ExprContext;
@@ -763,7 +763,7 @@ declare class ObjectElementContext extends ObjectMemberContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ObjectEntryContext extends ObjectMemberContext {
+export declare class ObjectEntryContext extends ObjectMemberContext {
   readonly _type: 'ObjectEntryContext';
   _t?: Token | null;
   _k?: ExprContext;
@@ -784,7 +784,7 @@ declare class ObjectEntryContext extends ObjectMemberContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ObjectMemberContext extends antlr.ParserRuleContext {
+export declare class ObjectMemberContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   get ruleIndex(): number;
   copyFrom(ctx: ObjectMemberContext): void;
@@ -799,7 +799,7 @@ declare class ObjectMemberContext extends antlr.ParserRuleContext {
     | ObjectEntryContext;
 }
 
-declare class ObjectMethodContext extends ObjectMemberContext {
+export declare class ObjectMethodContext extends ObjectMemberContext {
   readonly _type: 'ObjectMethodContext';
   constructor(ctx: ObjectMemberContext);
   methodHeader(): MethodHeaderContext;
@@ -810,7 +810,7 @@ declare class ObjectMethodContext extends ObjectMemberContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ObjectPropertyContext extends ObjectMemberContext {
+export declare class ObjectPropertyContext extends ObjectMemberContext {
   readonly _type: 'ObjectPropertyContext';
   constructor(ctx: ObjectMemberContext);
   Identifier(): antlr.TerminalNode;
@@ -826,7 +826,7 @@ declare class ObjectPropertyContext extends ObjectMemberContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ObjectSpreadContext extends ObjectMemberContext {
+export declare class ObjectSpreadContext extends ObjectMemberContext {
   readonly _type: 'ObjectSpreadContext';
   constructor(ctx: ObjectMemberContext);
   expr(): ExprContext;
@@ -837,7 +837,7 @@ declare class ObjectSpreadContext extends ObjectMemberContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class OuterExprContext extends ExprContext {
+export declare class OuterExprContext extends ExprContext {
   readonly _type: 'OuterExprContext';
   constructor(ctx: ExprContext);
   OUTER(): antlr.TerminalNode;
@@ -846,7 +846,7 @@ declare class OuterExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ParameterContext extends antlr.ParserRuleContext {
+export declare class ParameterContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   UNDERSCORE(): antlr.TerminalNode | null;
   typedIdentifier(): TypedIdentifierContext | null;
@@ -856,7 +856,7 @@ declare class ParameterContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ParameterListContext extends antlr.ParserRuleContext {
+export declare class ParameterListContext extends antlr.ParserRuleContext {
   _parameter?: ParameterContext;
   _ts: ParameterContext[];
   _s53?: Token | null;
@@ -875,7 +875,7 @@ declare class ParameterListContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ParenthesizedExprContext extends ExprContext {
+export declare class ParenthesizedExprContext extends ExprContext {
   readonly _type: 'ParenthesizedExprContext';
   _err?: Token | null;
   constructor(ctx: ExprContext);
@@ -887,7 +887,7 @@ declare class ParenthesizedExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ParenthesizedTypeContext extends TypeContext {
+export declare class ParenthesizedTypeContext extends TypeContext {
   readonly _type: 'ParenthesizedTypeContext';
   _err?: Token | null;
   constructor(ctx: TypeContext);
@@ -899,7 +899,7 @@ declare class ParenthesizedTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class PipeExprContext extends ExprContext {
+export declare class PipeExprContext extends ExprContext {
   readonly _type: 'PipeExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -2899,7 +2899,7 @@ export declare class PklTsParserVisitor<
   visitReservedKeyword?: (ctx: ReservedKeywordContext) => Result;
 }
 
-declare class QualifiedAccessExprContext extends ExprContext {
+export declare class QualifiedAccessExprContext extends ExprContext {
   readonly _type: 'QualifiedAccessExprContext';
   _t?: Token | null;
   constructor(ctx: ExprContext);
@@ -2913,7 +2913,7 @@ declare class QualifiedAccessExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class QualifiedIdentifierContext extends antlr.ParserRuleContext {
+export declare class QualifiedIdentifierContext extends antlr.ParserRuleContext {
   _Identifier?: Token | null;
   _ts: antlr.Token[];
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
@@ -2927,7 +2927,7 @@ declare class QualifiedIdentifierContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ReadExprContext extends ExprContext {
+export declare class ReadExprContext extends ExprContext {
   readonly _type: 'ReadExprContext';
   _t?: Token | null;
   _err?: Token | null;
@@ -2943,7 +2943,7 @@ declare class ReadExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ReplInputContext extends antlr.ParserRuleContext {
+export declare class ReplInputContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   EOF(): antlr.TerminalNode;
   moduleDecl(): ModuleDeclContext[];
@@ -2966,7 +2966,7 @@ declare class ReplInputContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ReservedKeywordContext extends antlr.ParserRuleContext {
+export declare class ReservedKeywordContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   PROTECTED(): antlr.TerminalNode | null;
   OVERRIDE(): antlr.TerminalNode | null;
@@ -2982,7 +2982,7 @@ declare class ReservedKeywordContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class SingleLineStringLiteralContext extends ExprContext {
+export declare class SingleLineStringLiteralContext extends ExprContext {
   readonly _type: 'SingleLineStringLiteralContext';
   _t?: Token | null;
   _t2?: Token | null;
@@ -2996,7 +2996,7 @@ declare class SingleLineStringLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class SingleLineStringPartContext extends antlr.ParserRuleContext {
+export declare class SingleLineStringPartContext extends antlr.ParserRuleContext {
   _e?: ExprContext;
   _SLCharacters?: Token | null;
   _ts: antlr.Token[];
@@ -3018,7 +3018,7 @@ declare class SingleLineStringPartContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class StringConstantContext extends antlr.ParserRuleContext {
+export declare class StringConstantContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   _SLCharacters?: Token | null;
   _ts: antlr.Token[];
@@ -3045,7 +3045,7 @@ declare class StringInterpolationScope {
   poundLength: number;
 }
 
-declare class StringLiteralTypeContext extends TypeContext {
+export declare class StringLiteralTypeContext extends TypeContext {
   readonly _type: 'StringLiteralTypeContext';
   constructor(ctx: TypeContext);
   stringConstant(): StringConstantContext;
@@ -3054,7 +3054,7 @@ declare class StringLiteralTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class SubscriptExprContext extends ExprContext {
+export declare class SubscriptExprContext extends ExprContext {
   readonly _type: 'SubscriptExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -3070,7 +3070,7 @@ declare class SubscriptExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class SuperAccessExprContext extends ExprContext {
+export declare class SuperAccessExprContext extends ExprContext {
   readonly _type: 'SuperAccessExprContext';
   constructor(ctx: ExprContext);
   SUPER(): antlr.TerminalNode;
@@ -3082,7 +3082,7 @@ declare class SuperAccessExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class SuperSubscriptExprContext extends ExprContext {
+export declare class SuperSubscriptExprContext extends ExprContext {
   readonly _type: 'SuperSubscriptExprContext';
   _t?: Token | null;
   _e?: ExprContext;
@@ -3097,7 +3097,7 @@ declare class SuperSubscriptExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ThisExprContext extends ExprContext {
+export declare class ThisExprContext extends ExprContext {
   readonly _type: 'ThisExprContext';
   constructor(ctx: ExprContext);
   THIS(): antlr.TerminalNode;
@@ -3106,7 +3106,7 @@ declare class ThisExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class ThrowExprContext extends ExprContext {
+export declare class ThrowExprContext extends ExprContext {
   readonly _type: 'ThrowExprContext';
   _err?: Token | null;
   constructor(ctx: ExprContext);
@@ -3119,7 +3119,7 @@ declare class ThrowExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TraceExprContext extends ExprContext {
+export declare class TraceExprContext extends ExprContext {
   readonly _type: 'TraceExprContext';
   _err?: Token | null;
   constructor(ctx: ExprContext);
@@ -3132,7 +3132,7 @@ declare class TraceExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TrueLiteralContext extends ExprContext {
+export declare class TrueLiteralContext extends ExprContext {
   readonly _type: 'TrueLiteralContext';
   constructor(ctx: ExprContext);
   TRUE(): antlr.TerminalNode;
@@ -3141,7 +3141,7 @@ declare class TrueLiteralContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeAliasContext extends antlr.ParserRuleContext {
+export declare class TypeAliasContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   typeAliasHeader(): TypeAliasHeaderContext;
@@ -3156,7 +3156,7 @@ declare class TypeAliasContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeAliasHeaderContext extends antlr.ParserRuleContext {
+export declare class TypeAliasHeaderContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   TYPE_ALIAS(): antlr.TerminalNode;
   Identifier(): antlr.TerminalNode;
@@ -3169,7 +3169,7 @@ declare class TypeAliasHeaderContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeAnnotationContext extends antlr.ParserRuleContext {
+export declare class TypeAnnotationContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   COLON(): antlr.TerminalNode;
   type(): TypeContext;
@@ -3179,7 +3179,7 @@ declare class TypeAnnotationContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeArgumentListContext extends antlr.ParserRuleContext {
+export declare class TypeArgumentListContext extends antlr.ParserRuleContext {
   _type_?: TypeContext;
   _ts: TypeContext[];
   _s53?: Token | null;
@@ -3198,7 +3198,7 @@ declare class TypeArgumentListContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeContext extends antlr.ParserRuleContext {
+export declare class TypeContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   get ruleIndex(): number;
   copyFrom(ctx: TypeContext): void;
@@ -3216,7 +3216,7 @@ declare class TypeContext extends antlr.ParserRuleContext {
     | UnionTypeContext;
 }
 
-declare class TypedIdentifierContext extends antlr.ParserRuleContext {
+export declare class TypedIdentifierContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   Identifier(): antlr.TerminalNode;
   typeAnnotation(): TypeAnnotationContext | null;
@@ -3226,7 +3226,7 @@ declare class TypedIdentifierContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeParameterContext extends antlr.ParserRuleContext {
+export declare class TypeParameterContext extends antlr.ParserRuleContext {
   _t?: Token | null;
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   Identifier(): antlr.TerminalNode;
@@ -3238,7 +3238,7 @@ declare class TypeParameterContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeParameterListContext extends antlr.ParserRuleContext {
+export declare class TypeParameterListContext extends antlr.ParserRuleContext {
   _typeParameter?: TypeParameterContext;
   _ts: TypeParameterContext[];
   _s53?: Token | null;
@@ -3257,7 +3257,7 @@ declare class TypeParameterListContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class TypeTestExprContext extends ExprContext {
+export declare class TypeTestExprContext extends ExprContext {
   readonly _type: 'TypeTestExprContext';
   _l?: ExprContext;
   _t?: Token | null;
@@ -3272,7 +3272,7 @@ declare class TypeTestExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class UnaryMinusExprContext extends ExprContext {
+export declare class UnaryMinusExprContext extends ExprContext {
   readonly _type: 'UnaryMinusExprContext';
   constructor(ctx: ExprContext);
   MINUS(): antlr.TerminalNode;
@@ -3282,7 +3282,7 @@ declare class UnaryMinusExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class UnionTypeContext extends TypeContext {
+export declare class UnionTypeContext extends TypeContext {
   readonly _type: 'UnionTypeContext';
   _l?: TypeContext;
   _r?: TypeContext;
@@ -3295,7 +3295,7 @@ declare class UnionTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class UnknownTypeContext extends TypeContext {
+export declare class UnknownTypeContext extends TypeContext {
   readonly _type: 'UnknownTypeContext';
   constructor(ctx: TypeContext);
   UNKNOWN(): antlr.TerminalNode;
@@ -3304,7 +3304,7 @@ declare class UnknownTypeContext extends TypeContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class UnqualifiedAccessExprContext extends ExprContext {
+export declare class UnqualifiedAccessExprContext extends ExprContext {
   readonly _type: 'UnqualifiedAccessExprContext';
   constructor(ctx: ExprContext);
   Identifier(): antlr.TerminalNode;
@@ -3314,7 +3314,7 @@ declare class UnqualifiedAccessExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-declare class WhenGeneratorContext extends ObjectMemberContext {
+export declare class WhenGeneratorContext extends ObjectMemberContext {
   readonly _type: 'WhenGeneratorContext';
   _e?: ExprContext;
   _err?: Token | null;
