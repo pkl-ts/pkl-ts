@@ -57,7 +57,7 @@ function getTypedMethod(j, subclasses) {
   // public get typed(): this is Type1 | Type2 { return this as any; }
   const method = j.methodDefinition(
     'get',
-    j.identifier('typed'),
+    j.identifier('_typed'),
     j.functionExpression(
       null,
       [],

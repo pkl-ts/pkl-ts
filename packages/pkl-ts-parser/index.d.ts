@@ -239,7 +239,7 @@ declare class ExprContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   get ruleIndex(): number;
   copyFrom(ctx: ExprContext): void;
-  get typed():
+  get _typed():
     | NewExprContext
     | ThisExprContext
     | PipeExprContext
@@ -788,7 +788,7 @@ declare class ObjectMemberContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   get ruleIndex(): number;
   copyFrom(ctx: ObjectMemberContext): void;
-  get typed():
+  get _typed():
     | WhenGeneratorContext
     | MemberPredicateContext
     | ObjectSpreadContext
@@ -3202,7 +3202,7 @@ declare class TypeContext extends antlr.ParserRuleContext {
   constructor(parent: antlr.ParserRuleContext | null, invokingState: number);
   get ruleIndex(): number;
   copyFrom(ctx: TypeContext): void;
-  get typed():
+  get _typed():
     | DefaultUnionTypeContext
     | ModuleTypeContext
     | StringLiteralTypeContext
