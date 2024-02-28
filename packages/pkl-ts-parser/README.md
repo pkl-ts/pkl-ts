@@ -17,8 +17,8 @@ import {
   pklParser,
   PklTsParserListener,
   PklTsParserVisitor,
-} from '@pkl-ts-parser/pkl-parser';
-import { CharStreams, ParseTreeWalker } from '@pkl-ts-parser/pkl-parser/antlr';
+} from '@pkl-parser/pkl-parser';
+import { CharStreams, ParseTreeWalker } from '@pkl-parser/pkl-parser/antlr';
 
 const input = `
     other = "Swallow"
@@ -65,7 +65,7 @@ let ri = tree.replInput();
 let visitor = new Visitor();
 visitor.visit(ri);
 let classProperties = visitor.visit(ri);
-console.log(classProperties);
+console.log(classProperties); // ['other', 'name', 'job']
 ```
 
 Also you can walk the parse tree with listener too:
@@ -83,5 +83,5 @@ const tree = pklParser(CharStreams.fromString(input));
 let ri = tree.replInput();
 let listener = new Listener();
 ParseTreeWalker.DEFAULT.walk(listener, ri);
-console.log(listener.classProperties);
+console.log(listener.classProperties); // ['other', 'name', 'job']
 ```
