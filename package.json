@@ -8,6 +8,7 @@
   "author": "Seyyed Morteza Moosavi",
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "husky": "^9"
   },
   "scripts": {
