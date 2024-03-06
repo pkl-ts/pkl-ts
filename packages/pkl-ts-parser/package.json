@@ -5,6 +5,7 @@
     "src",
     "dist",
     "index.d.ts",
+    "antlr.d.ts",
     "tsdoc-metadata.json"
   ],
   "license": "MIT",
@@ -14,8 +15,14 @@
   "module": "./dist/index.mjs",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.js"
+    },
+    "./antlr": {
+      "types": "./antlr.d.ts",
+      "require": "./dist/antlr.cjs",
+      "import": "./dist/antlr.js"
     }
   },
   "engines": {
@@ -29,7 +36,9 @@
     "test": "vitest --run --coverage",
     "test:watch": "vitest",
     "build:antlr": "./scripts/update-ts.sh",
-    "build:dts": "api-extractor run --local --verbose && prettier --write index.d.ts",
+    "build:dts:index": "api-extractor run --local --verbose --config api-extractor.index.json && prettier --write index.d.ts",
+    "build:dts:antlr": "api-extractor run --local --verbose --config api-extractor.antlr.json && prettier --write antlr.d.ts",
+    "build:dts": "pnpm build:dts:index && pnpm build:dts:antlr",
     "build": "pnpm build:antlr && tsc && vite build && pnpm build:dts",
     "prepublishOnly": "pnpm build"
   },

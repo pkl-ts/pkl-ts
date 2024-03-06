@@ -43,8 +43,6 @@ export declare class AnnotationContext extends antlr.ParserRuleContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
-export { antlr };
-
 export declare class ArgumentListContext extends antlr.ParserRuleContext {
   _expr?: ExprContext;
   _es: ExprContext[];
