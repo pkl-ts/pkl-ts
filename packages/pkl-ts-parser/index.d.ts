@@ -1047,7 +1047,7 @@ export declare class PklTsLexer extends antlr.Lexer {
   get channelNames(): string[];
   get modeNames(): string[];
   action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     ruleIndex: number,
     actionIndex: number,
   ): void;
@@ -1059,7 +1059,7 @@ export declare class PklTsLexer extends antlr.Lexer {
   private SLInterpolation_action;
   private MLInterpolation_action;
   sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     ruleIndex: number,
     predIndex: number,
   ): boolean;
@@ -1272,7 +1272,7 @@ export declare class PklTsParser extends antlr.Parser {
   multiLineStringPart(): MultiLineStringPartContext;
   reservedKeyword(): ReservedKeywordContext;
   sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     ruleIndex: number,
     predIndex: number,
   ): boolean;

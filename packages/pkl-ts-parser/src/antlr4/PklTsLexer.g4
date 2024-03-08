@@ -52,18 +52,18 @@ decParenLevel(): void {
 isPounds(): boolean {
  switch (this.interpolationScope.poundLength) {
    case 0: return true;
-   case 1: return String.fromCharCode(this._input.LA(1)) === '#';
+   case 1: return String.fromCharCode(this.inputStream.LA(1)) === '#';
    default:
      let poundLength = this.interpolationScope.poundLength;
      for (let i = 1; i <= poundLength; i++) {
-       if (String.fromCharCode(this._input.LA(i)) !== '#') return false;
+       if (String.fromCharCode(this.inputStream.LA(i)) !== '#') return false;
      }
      return true;
  }
 }
 
 isQuote(): boolean {
- return String.fromCharCode(this._input.LA(1)) === '"';
+ return String.fromCharCode(this.inputStream.LA(1)) === '"';
 }
 
 endsWithPounds(text: string): boolean {
@@ -95,7 +95,7 @@ removeBackTicks(): void {
 
 isNewlineOrEof(): boolean {
  let input = String.fromCharCode(this.inputStream.LA(1));
- return input === '\n' || input === '\r' || this._input.LA(1) === Token.EOF;
+ return input === '\n' || input === '\r' || this.inputStream.LA(1) === Token.EOF;
 }
 
 isUnicodeIdentifierStart(char: string): boolean {
@@ -280,13 +280,13 @@ fragment QuotedIdentifier
 fragment
 IdentifierStart
   : [a-zA-Z$_] // handle common cases without a predicate
-  | . {this.isUnicodeIdentifierStart(String.fromCharCode(this._input.LA(-1)))}?
+  | . {this.isUnicodeIdentifierStart(String.fromCharCode(this.inputStream.LA(-1)))}?
   ;
 
 fragment
 IdentifierPart
   : [a-zA-Z0-9$_] // handle common cases without a predicate
-  | . {this.isUnicodeIdentifierPart(String.fromCharCode(this._input.LA(-1)))}?
+  | . {this.isUnicodeIdentifierPart(String.fromCharCode(this.inputStream.LA(-1)))}?
   ;
 
 NewlineSemicolon

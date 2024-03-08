@@ -481,18 +481,18 @@ export class PklTsLexer extends antlr.Lexer {
       case 0:
         return true;
       case 1:
-        return String.fromCharCode(this._input.LA(1)) === '#';
+        return String.fromCharCode(this.inputStream.LA(1)) === '#';
       default:
         let poundLength = this.interpolationScope.poundLength;
         for (let i = 1; i <= poundLength; i++) {
-          if (String.fromCharCode(this._input.LA(i)) !== '#') return false;
+          if (String.fromCharCode(this.inputStream.LA(i)) !== '#') return false;
         }
         return true;
     }
   }
 
   isQuote(): boolean {
-    return String.fromCharCode(this._input.LA(1)) === '"';
+    return String.fromCharCode(this.inputStream.LA(1)) === '"';
   }
 
   endsWithPounds(text: string): boolean {
@@ -526,7 +526,9 @@ export class PklTsLexer extends antlr.Lexer {
 
   isNewlineOrEof(): boolean {
     let input = String.fromCharCode(this.inputStream.LA(1));
-    return input === '\n' || input === '\r' || this._input.LA(1) === Token.EOF;
+    return (
+      input === '\n' || input === '\r' || this.inputStream.LA(1) === Token.EOF
+    );
   }
 
   isUnicodeIdentifierStart(char: string): boolean {
@@ -574,7 +576,7 @@ export class PklTsLexer extends antlr.Lexer {
   }
 
   public override action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     ruleIndex: number,
     actionIndex: number,
   ): void {
@@ -603,7 +605,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   private LPAREN_action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     actionIndex: number,
   ): void {
     switch (actionIndex) {
@@ -613,7 +615,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   private RPAREN_action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     actionIndex: number,
   ): void {
     switch (actionIndex) {
@@ -623,7 +625,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   private SLQuote_action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     actionIndex: number,
   ): void {
     switch (actionIndex) {
@@ -633,7 +635,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   private MLQuote_action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     actionIndex: number,
   ): void {
     switch (actionIndex) {
@@ -643,7 +645,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   private Identifier_action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     actionIndex: number,
   ): void {
     switch (actionIndex) {
@@ -653,7 +655,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   private SLInterpolation_action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     actionIndex: number,
   ): void {
     switch (actionIndex) {
@@ -663,7 +665,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   private MLInterpolation_action(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     actionIndex: number,
   ): void {
     switch (actionIndex) {
@@ -673,7 +675,7 @@ export class PklTsLexer extends antlr.Lexer {
     }
   }
   public override sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     ruleIndex: number,
     predIndex: number,
   ): boolean {
@@ -696,31 +698,31 @@ export class PklTsLexer extends antlr.Lexer {
     return true;
   }
   private IdentifierStart_sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     predIndex: number,
   ): boolean {
     switch (predIndex) {
       case 0:
         return this.isUnicodeIdentifierStart(
-          String.fromCharCode(this._input.LA(-1)),
+          String.fromCharCode(this.inputStream.LA(-1)),
         );
     }
     return true;
   }
   private IdentifierPart_sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     predIndex: number,
   ): boolean {
     switch (predIndex) {
       case 1:
         return this.isUnicodeIdentifierPart(
-          String.fromCharCode(this._input.LA(-1)),
+          String.fromCharCode(this.inputStream.LA(-1)),
         );
     }
     return true;
   }
   private LineComment_sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     predIndex: number,
   ): boolean {
     switch (predIndex) {
@@ -730,7 +732,7 @@ export class PklTsLexer extends antlr.Lexer {
     return true;
   }
   private ShebangComment_sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     predIndex: number,
   ): boolean {
     switch (predIndex) {
@@ -740,7 +742,7 @@ export class PklTsLexer extends antlr.Lexer {
     return true;
   }
   private Pounds_sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     predIndex: number,
   ): boolean {
     switch (predIndex) {
@@ -754,7 +756,7 @@ export class PklTsLexer extends antlr.Lexer {
     return true;
   }
   private SLCharacters_sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     predIndex: number,
   ): boolean {
     switch (predIndex) {
@@ -764,7 +766,7 @@ export class PklTsLexer extends antlr.Lexer {
     return true;
   }
   private MLCharacters_sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     predIndex: number,
   ): boolean {
     switch (predIndex) {

@@ -511,7 +511,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -535,7 +534,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -573,7 +571,7 @@ export class PklTsParser extends antlr.Parser {
             {
               this.state = 90;
               localContext._importClause = this.importClause();
-              localContext._is.push(localContext._importClause);
+              localContext._is.push(localContext._importClause!);
             }
           }
           this.state = 95;
@@ -605,28 +603,28 @@ export class PklTsParser extends antlr.Parser {
                   {
                     this.state = 96;
                     localContext._clazz = this.clazz();
-                    localContext._cs.push(localContext._clazz);
+                    localContext._cs.push(localContext._clazz!);
                   }
                   break;
                 case 2:
                   {
                     this.state = 97;
                     localContext._typeAlias = this.typeAlias();
-                    localContext._ts.push(localContext._typeAlias);
+                    localContext._ts.push(localContext._typeAlias!);
                   }
                   break;
                 case 3:
                   {
                     this.state = 98;
                     localContext._classProperty = this.classProperty();
-                    localContext._ps.push(localContext._classProperty);
+                    localContext._ps.push(localContext._classProperty!);
                   }
                   break;
                 case 4:
                   {
                     this.state = 99;
                     localContext._classMethod = this.classMethod();
-                    localContext._ms.push(localContext._classMethod);
+                    localContext._ms.push(localContext._classMethod!);
                   }
                   break;
               }
@@ -641,7 +639,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -688,7 +685,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -766,7 +762,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -805,7 +800,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -848,7 +842,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -904,7 +897,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -967,7 +959,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -997,7 +988,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1045,14 +1035,14 @@ export class PklTsParser extends antlr.Parser {
                     {
                       this.state = 174;
                       localContext._classProperty = this.classProperty();
-                      localContext._ps.push(localContext._classProperty);
+                      localContext._ps.push(localContext._classProperty!);
                     }
                     break;
                   case 2:
                     {
                       this.state = 175;
                       localContext._classMethod = this.classMethod();
-                      localContext._ms.push(localContext._classMethod);
+                      localContext._ms.push(localContext._classMethod!);
                     }
                     break;
                 }
@@ -1079,7 +1069,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1130,7 +1119,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1178,7 +1166,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1297,7 +1284,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1355,7 +1341,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1415,7 +1400,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1445,7 +1429,7 @@ export class PklTsParser extends antlr.Parser {
             {
               this.state = 271;
               localContext._parameter = this.parameter();
-              localContext._ts.push(localContext._parameter);
+              localContext._ts.push(localContext._parameter!);
               this.state = 278;
               this.errorHandler.sync(this);
               alternative = this.interpreter.adaptivePredict(
@@ -1467,13 +1451,13 @@ export class PklTsParser extends antlr.Parser {
                         {
                           this.state = 272;
                           localContext._s53 = this.match(PklTsParser.COMMA);
-                          localContext._errs.push(localContext._s53);
+                          localContext._errs.push(localContext._s53!);
                         }
                       }
 
                       this.state = 275;
                       localContext._parameter = this.parameter();
-                      localContext._ts.push(localContext._parameter);
+                      localContext._ts.push(localContext._parameter!);
                     }
                   }
                 }
@@ -1500,7 +1484,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1536,7 +1519,7 @@ export class PklTsParser extends antlr.Parser {
             {
               this.state = 288;
               localContext._expr = this.expr(0);
-              localContext._es.push(localContext._expr);
+              localContext._es.push(localContext._expr!);
               this.state = 295;
               this.errorHandler.sync(this);
               alternative = this.interpreter.adaptivePredict(
@@ -1558,13 +1541,13 @@ export class PklTsParser extends antlr.Parser {
                         {
                           this.state = 289;
                           localContext._s53 = this.match(PklTsParser.COMMA);
-                          localContext._errs.push(localContext._s53);
+                          localContext._errs.push(localContext._s53!);
                         }
                       }
 
                       this.state = 292;
                       localContext._expr = this.expr(0);
-                      localContext._es.push(localContext._expr);
+                      localContext._es.push(localContext._expr!);
                     }
                   }
                 }
@@ -1594,7 +1577,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1628,7 +1610,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1648,7 +1629,7 @@ export class PklTsParser extends antlr.Parser {
       {
         this.state = 308;
         localContext._Identifier = this.match(PklTsParser.Identifier);
-        localContext._ts.push(localContext._Identifier);
+        localContext._ts.push(localContext._Identifier!);
         this.state = 313;
         this.errorHandler.sync(this);
         alternative = this.interpreter.adaptivePredict(
@@ -1667,7 +1648,7 @@ export class PklTsParser extends antlr.Parser {
                 this.match(PklTsParser.DOT);
                 this.state = 310;
                 localContext._Identifier = this.match(PklTsParser.Identifier);
-                localContext._ts.push(localContext._Identifier);
+                localContext._ts.push(localContext._Identifier!);
               }
             }
           }
@@ -1682,7 +1663,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1706,7 +1686,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1729,7 +1708,7 @@ export class PklTsParser extends antlr.Parser {
         this.match(PklTsParser.LT);
         this.state = 320;
         localContext._typeParameter = this.typeParameter();
-        localContext._ts.push(localContext._typeParameter);
+        localContext._ts.push(localContext._typeParameter!);
         this.state = 327;
         this.errorHandler.sync(this);
         alternative = this.interpreter.adaptivePredict(
@@ -1751,13 +1730,13 @@ export class PklTsParser extends antlr.Parser {
                   {
                     this.state = 321;
                     localContext._s53 = this.match(PklTsParser.COMMA);
-                    localContext._errs.push(localContext._s53);
+                    localContext._errs.push(localContext._s53!);
                   }
                 }
 
                 this.state = 324;
                 localContext._typeParameter = this.typeParameter();
-                localContext._ts.push(localContext._typeParameter);
+                localContext._ts.push(localContext._typeParameter!);
               }
             }
           }
@@ -1781,7 +1760,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1821,7 +1799,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -1844,7 +1821,7 @@ export class PklTsParser extends antlr.Parser {
         this.match(PklTsParser.LT);
         this.state = 339;
         localContext._type_ = this.type_(0);
-        localContext._ts.push(localContext._type_);
+        localContext._ts.push(localContext._type_!);
         this.state = 346;
         this.errorHandler.sync(this);
         alternative = this.interpreter.adaptivePredict(
@@ -1866,13 +1843,13 @@ export class PklTsParser extends antlr.Parser {
                   {
                     this.state = 340;
                     localContext._s53 = this.match(PklTsParser.COMMA);
-                    localContext._errs.push(localContext._s53);
+                    localContext._errs.push(localContext._s53!);
                   }
                 }
 
                 this.state = 343;
                 localContext._type_ = this.type_(0);
-                localContext._ts.push(localContext._type_);
+                localContext._ts.push(localContext._type_!);
               }
             }
           }
@@ -1899,7 +1876,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -2132,7 +2108,7 @@ export class PklTsParser extends antlr.Parser {
           alternative !== antlr.ATN.INVALID_ALT_NUMBER
         ) {
           if (alternative === 1) {
-            if (this._parseListeners != null) {
+            if (this.parseListeners != null) {
               this.triggerExitRuleEvent();
             }
             previousContext = localContext;
@@ -2302,7 +2278,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -2336,7 +2311,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -2373,7 +2347,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -2935,7 +2908,7 @@ export class PklTsParser extends antlr.Parser {
           alternative !== antlr.ATN.INVALID_ALT_NUMBER
         ) {
           if (alternative === 1) {
-            if (this._parseListeners != null) {
+            if (this.parseListeners != null) {
               this.triggerExitRuleEvent();
             }
             previousContext = localContext;
@@ -3421,7 +3394,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -3451,7 +3423,7 @@ export class PklTsParser extends antlr.Parser {
             {
               this.state = 584;
               localContext._parameter = this.parameter();
-              localContext._ps.push(localContext._parameter);
+              localContext._ps.push(localContext._parameter!);
               this.state = 591;
               this.errorHandler.sync(this);
               _la = this.tokenStream.LA(1);
@@ -3465,13 +3437,13 @@ export class PklTsParser extends antlr.Parser {
                       {
                         this.state = 585;
                         localContext._s53 = this.match(PklTsParser.COMMA);
-                        localContext._errs.push(localContext._s53);
+                        localContext._errs.push(localContext._s53!);
                       }
                     }
 
                     this.state = 588;
                     localContext._parameter = this.parameter();
-                    localContext._ps.push(localContext._parameter);
+                    localContext._ps.push(localContext._parameter!);
                   }
                 }
                 this.state = 593;
@@ -3525,7 +3497,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -3927,7 +3898,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -3961,7 +3931,7 @@ export class PklTsParser extends antlr.Parser {
                   localContext._SLCharacters = this.match(
                     PklTsParser.SLCharacters,
                   );
-                  localContext._ts.push(localContext._SLCharacters);
+                  localContext._ts.push(localContext._SLCharacters!);
                 }
                 break;
               case PklTsParser.SLCharacterEscape:
@@ -3970,7 +3940,7 @@ export class PklTsParser extends antlr.Parser {
                   localContext._SLCharacterEscape = this.match(
                     PklTsParser.SLCharacterEscape,
                   );
-                  localContext._ts.push(localContext._SLCharacterEscape);
+                  localContext._ts.push(localContext._SLCharacterEscape!);
                 }
                 break;
               case PklTsParser.SLUnicodeEscape:
@@ -3979,7 +3949,7 @@ export class PklTsParser extends antlr.Parser {
                   localContext._SLUnicodeEscape = this.match(
                     PklTsParser.SLUnicodeEscape,
                   );
-                  localContext._ts.push(localContext._SLUnicodeEscape);
+                  localContext._ts.push(localContext._SLUnicodeEscape!);
                 }
                 break;
               default:
@@ -3995,7 +3965,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -4049,7 +4018,7 @@ export class PklTsParser extends antlr.Parser {
                           localContext._SLCharacters = this.match(
                             PklTsParser.SLCharacters,
                           );
-                          localContext._ts.push(localContext._SLCharacters);
+                          localContext._ts.push(localContext._SLCharacters!);
                         }
                         break;
                       case PklTsParser.SLCharacterEscape:
@@ -4059,7 +4028,7 @@ export class PklTsParser extends antlr.Parser {
                             PklTsParser.SLCharacterEscape,
                           );
                           localContext._ts.push(
-                            localContext._SLCharacterEscape,
+                            localContext._SLCharacterEscape!,
                           );
                         }
                         break;
@@ -4069,7 +4038,7 @@ export class PklTsParser extends antlr.Parser {
                           localContext._SLUnicodeEscape = this.match(
                             PklTsParser.SLUnicodeEscape,
                           );
-                          localContext._ts.push(localContext._SLUnicodeEscape);
+                          localContext._ts.push(localContext._SLUnicodeEscape!);
                         }
                         break;
                       default:
@@ -4098,7 +4067,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -4150,7 +4118,7 @@ export class PklTsParser extends antlr.Parser {
                           localContext._MLCharacters = this.match(
                             PklTsParser.MLCharacters,
                           );
-                          localContext._ts.push(localContext._MLCharacters);
+                          localContext._ts.push(localContext._MLCharacters!);
                         }
                         break;
                       case PklTsParser.MLNewline:
@@ -4159,7 +4127,7 @@ export class PklTsParser extends antlr.Parser {
                           localContext._MLNewline = this.match(
                             PklTsParser.MLNewline,
                           );
-                          localContext._ts.push(localContext._MLNewline);
+                          localContext._ts.push(localContext._MLNewline!);
                         }
                         break;
                       case PklTsParser.MLCharacterEscape:
@@ -4169,7 +4137,7 @@ export class PklTsParser extends antlr.Parser {
                             PklTsParser.MLCharacterEscape,
                           );
                           localContext._ts.push(
-                            localContext._MLCharacterEscape,
+                            localContext._MLCharacterEscape!,
                           );
                         }
                         break;
@@ -4179,7 +4147,7 @@ export class PklTsParser extends antlr.Parser {
                           localContext._MLUnicodeEscape = this.match(
                             PklTsParser.MLUnicodeEscape,
                           );
-                          localContext._ts.push(localContext._MLUnicodeEscape);
+                          localContext._ts.push(localContext._MLUnicodeEscape!);
                         }
                         break;
                       default:
@@ -4208,7 +4176,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -4242,7 +4209,6 @@ export class PklTsParser extends antlr.Parser {
       }
     } catch (re) {
       if (re instanceof antlr.RecognitionException) {
-        localContext.exception = re;
         this.errorHandler.reportError(this, re);
         this.errorHandler.recover(this, re);
       } else {
@@ -4255,7 +4221,7 @@ export class PklTsParser extends antlr.Parser {
   }
 
   public override sempred(
-    localContext: antlr.RuleContext | null,
+    localContext: antlr.ParserRuleContext | null,
     ruleIndex: number,
     predIndex: number,
   ): boolean {
