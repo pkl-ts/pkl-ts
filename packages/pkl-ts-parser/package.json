@@ -1,6 +1,6 @@
 {
   "name": "@pkl-ts/parser",
-  "version": "0.2.0-3",
+  "version": "0.2.0-4",
   "files": [
     "src",
     "dist",
