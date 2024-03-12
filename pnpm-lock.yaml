@@ -15,6 +15,42 @@ importers:
         specifier: ^9
         version: 9.0.10
 
+  packages/pkl-ts-astexplorer:
+    devDependencies:
+      '@microsoft/api-extractor':
+        specifier: ^7
+        version: 7.42.3(@types/node@20.11.25)
+      '@types/node':
+        specifier: ^20
+        version: 20.11.25
+      '@vitest/coverage-istanbul':
+        specifier: ^1
+        version: 1.3.1(vitest@1.3.1)
+      eslint:
+        specifier: ^8
+        version: 8.57.0
+      eslint-config-react-app:
+        specifier: ^7
+        version: 7.0.1(@babel/plugin-syntax-flow@7.23.3)(@babel/plugin-transform-react-jsx@7.23.4)(eslint@8.57.0)(typescript@5.4.2)
+      lint-staged:
+        specifier: ^15
+        version: 15.2.2
+      prettier:
+        specifier: ^3
+        version: 3.2.5
+      typescript:
+        specifier: ^5
+        version: 5.4.2
+      vite:
+        specifier: ^5
+        version: 5.1.5(@types/node@20.11.25)
+      vite-plugin-dts:
+        specifier: ^3
+        version: 3.7.3(@types/node@20.11.25)(typescript@5.4.2)(vite@5.1.5)
+      vitest:
+        specifier: ^1
+        version: 1.3.1(@types/node@20.11.25)
+
   packages/pkl-ts-parser:
     dependencies:
       antlr4ng:
@@ -143,14 +179,14 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/eslint-parser@7.23.10(@babel/core@7.23.9)(eslint@8.57.0):
+  /@babel/eslint-parser@7.23.10(@babel/core@7.24.0)(eslint@8.57.0):
     resolution: {integrity: sha512-3wSYDPZVnhseRnxRJH6ZVTNknBz76AEnyC+AYYhasjP3Yy23qz0ERR7Fcd2SHmYuSFJ2kY9gaaDd3vyqU09eSw==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
       eslint: ^7.5.0 || ^8.0.0
     dependencies:
-      '@babel/core': 7.23.9
+      '@babel/core': 7.24.0
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
       eslint: 8.57.0
       eslint-visitor-keys: 2.1.0
@@ -3891,8 +3927,8 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@babel/core': 7.23.9
-      '@babel/eslint-parser': 7.23.10(@babel/core@7.23.9)(eslint@8.57.0)
+      '@babel/core': 7.24.0
+      '@babel/eslint-parser': 7.23.10(@babel/core@7.24.0)(eslint@8.57.0)
       '@rushstack/eslint-patch': 1.7.2
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.4.2)
