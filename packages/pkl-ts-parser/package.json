@@ -46,10 +46,10 @@
     "@microsoft/api-extractor": "^7",
     "@types/node": "^20",
     "@vitest/coverage-istanbul": "^1",
-    "antlr4ng-cli": "^1.0.7",
+    "antlr4ng-cli": "^2",
     "eslint": "^8",
     "eslint-config-react-app": "^7",
-    "jscodeshift": "^0.15.1",
+    "jscodeshift": "^0.15",
     "lint-staged": "^15",
     "prettier": "^3",
     "typescript": "^5",
@@ -58,6 +58,6 @@
     "vitest": "^1"
   },
   "dependencies": {
-    "antlr4ng": "^2.0.10"
+    "antlr4ng": "^3"
   }
 }

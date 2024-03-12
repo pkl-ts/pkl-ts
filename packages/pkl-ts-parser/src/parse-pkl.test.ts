@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CharStreams, ParseTreeWalker } from './antlr';
+import { CharStream, ParseTreeWalker } from './antlr';
 import {
   ClassPropertyContext,
   pklParser,
@@ -19,7 +19,7 @@ job {
 }
 `;
 
-    const tree = pklParser(CharStreams.fromString(input));
+    const tree = pklParser(CharStream.fromString(input));
     let ri = tree.replInput();
     let classProperties: string[] = [];
 
@@ -65,7 +65,7 @@ job {
       }
     }
 
-    const tree = pklParser(CharStreams.fromString(input));
+    const tree = pklParser(CharStream.fromString(input));
     let ri = tree.replInput();
     let visitor = new Visitor();
     let classProperties = visitor.visit(ri);
@@ -90,7 +90,7 @@ job {
       };
     }
 
-    const tree = pklParser(CharStreams.fromString(input));
+    const tree = pklParser(CharStream.fromString(input));
     let ri = tree.replInput();
     let listener = new Listener();
     ParseTreeWalker.DEFAULT.walk(listener, ri);
