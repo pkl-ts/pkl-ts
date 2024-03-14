@@ -20,6 +20,9 @@ importers:
       '@microsoft/api-extractor':
         specifier: ^7
         version: 7.42.3(@types/node@20.11.25)
+      '@pkl-ts/parser':
+        specifier: workspace:*
+        version: link:../pkl-ts-parser
       '@types/node':
         specifier: ^20
         version: 20.11.25

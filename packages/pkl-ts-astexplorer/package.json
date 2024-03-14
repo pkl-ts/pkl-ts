@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7",
+    "@pkl-ts/parser": "workspace:*",
     "@types/node": "^20",
     "@vitest/coverage-istanbul": "^1",
     "eslint": "^8",
