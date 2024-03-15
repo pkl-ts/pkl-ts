@@ -911,6 +911,10 @@ export declare class PipeExprContext extends ExprContext {
   accept<Result>(visitor: PklTsParserVisitor<Result>): Result | null;
 }
 
+export declare const PKL_TS_VERSION: string;
+
+export declare const PKL_VERSION: string;
+
 export declare function pklParser(charStream: CharStream): PklTsParser;
 
 export declare class PklTsLexer extends antlr.Lexer {
