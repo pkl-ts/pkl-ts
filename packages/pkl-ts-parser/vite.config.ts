@@ -12,6 +12,9 @@ const external = [
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [dts({ outDir: resolve(__dirname, './.cache/dts') })],
+  define: {
+    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
+  },
   test: {
     coverage: {
       reporter: ['clover', 'json', 'lcov', 'text'],
