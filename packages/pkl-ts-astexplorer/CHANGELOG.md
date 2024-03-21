@@ -1,5 +1,11 @@
 # @pkl-ts/astexplorer
 
+## 0.3.1-1
+
+### Patch Changes
+
+- 4621032: collect and show errors
+
 ## 0.3.1-0
 
 ### Patch Changes
