@@ -1,6 +1,18 @@
 {
   "name": "@pkl-ts/parser",
   "version": "0.3.0",
+  "description": "Typescript parser for pkl",
+  "homepage": "https://github.com/pkl-ts/pkl-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pkl-ts/pkl-ts.git",
+    "directory": "packages/pkl-ts-parser"
+  },
+  "keywords": [
+    "pkl",
+    "pkl-ts",
+    "parser"
+  ],
   "files": [
     "src",
     "dist",
