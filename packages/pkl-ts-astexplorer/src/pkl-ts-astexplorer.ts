@@ -2,13 +2,25 @@ import {
   CharStream,
   TerminalNode,
   ParserRuleContext,
+  CommonTokenStream,
 } from '@pkl-ts/parser/antlr';
-import { pklParser, PklTsParser, ReplInputContext } from '@pkl-ts/parser';
+import { PklTsLexer, PklTsParser, ReplInputContext } from '@pkl-ts/parser';
+import { PklTsSyntaxError, SyntaxErrorListener } from './SyntaxErrorListener';
 
 export function parse(input: string) {
   const stream = CharStream.fromString(input);
-  let tree = pklParser(stream);
-  return tree.replInput();
+  const lexer = new PklTsLexer(stream);
+  const tokens = new CommonTokenStream(lexer);
+  let tree = new PklTsParser(tokens);
+  let listener = new SyntaxErrorListener();
+  tree.addErrorListener(listener);
+  lexer.addErrorListener(listener);
+  let repl = tree.replInput();
+
+  return {
+    tree: repl,
+    errors: listener.errors,
+  };
 }
 
 export function getNodeName(node: unknown): string | undefined {
@@ -26,6 +38,9 @@ export function getNodeName(node: unknown): string | undefined {
     }
     return PklTsParser.ruleNames[node.ruleIndex];
   }
+  if (node instanceof PklTsSyntaxError) {
+    return 'SyntaxError';
+  }
 }
 
 export function getNodeRange(node: unknown) {
@@ -36,6 +51,9 @@ export function getNodeRange(node: unknown) {
 
   if (node instanceof ParserRuleContext && node.start && node.stop) {
     return [node.start.start, node.stop.stop + 1];
+  }
+  if (node instanceof PklTsSyntaxError && node.node) {
+    return [node.node.start, node.node.stop + 1];
   }
   return undefined;
 }
@@ -49,6 +67,7 @@ export function* getProperties(node: unknown) {
     'enterRule',
     'exitRule',
     'accept',
+    'copyFrom',
   ]);
   if (node && typeof node === 'object') {
     for (let prop in node) {
