@@ -1,5 +1,11 @@
 # @pkl-ts/parser
 
+## 0.3.1
+
+### Patch Changes
+
+- 3c8464d: add description, homepage, repository, keywords to package.json
+
 ## 0.3.0
 
 ### Minor Changes

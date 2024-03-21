@@ -1,5 +1,12 @@
 # @pkl-ts/astexplorer
 
+## 0.3.1-0
+
+### Patch Changes
+
+- 3c8464d: add readme
+- 3c8464d: add description, homepage, repository, keywords to package.json
+
 ## 0.1.0
 
 ### Minor Changes
